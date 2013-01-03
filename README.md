@@ -1,4 +1,4 @@
-#Infrared - The 2013 FRC Robot built by Spectrum 3847
+#Infrared (name subject to change) - The 2013 FRC Robot for Spectrum 3847
 
 **Developers:** Allen Gregory, Matthew Skolaut, Tiffany Ang, Patrick Granaham, and Hunter Werlla
 
