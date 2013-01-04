@@ -8,9 +8,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.OI;
 
 
-/**
- *
- * @author David
+/*
+ * @author Matthew
  */
 public class ManualTankDrive extends CommandBase {
     

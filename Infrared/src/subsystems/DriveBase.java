@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package subsystems;
 
 import driver.SpectrumDrive;
@@ -12,7 +8,7 @@ import framework.Init;
 
 /**
  *
- * @author David
+ * @author David, Matthew
  */
 public class DriveBase extends PIDSubsystem {
     
