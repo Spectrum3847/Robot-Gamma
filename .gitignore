@@ -5,3 +5,4 @@
 *.war
 *.ear
 /Infrared/nbproject/private/
+/Infrared/build/
