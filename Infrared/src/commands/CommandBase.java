@@ -13,6 +13,7 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     public static DriveBase drivebase = new DriveBase();
+    public static Shooter shoot = new Shooter();
     // Create a single static instance of all of your subsystems
 
 

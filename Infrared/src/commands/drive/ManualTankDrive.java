@@ -1,7 +1,4 @@
-/*
- * Class to control drive base with joysticks
- */
-package driver;
+package commands.drive;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -26,13 +23,16 @@ public class ManualTankDrive extends CommandBase {
     protected void initialize() {
      drivebase.disableTurnController();
      SmartDashboard.putBoolean("Tank", true);           //Tell Smart Dashboard we are in tank mode
+     drivebase.getLeftEncoder().start();
+     drivebase.getRightEncoder().start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         drivebase.setLeft(OI.driveStick_left.getY());
+        SmartDashboard.putNumber("Left Encoder", drivebase.getLeftEncoder().getDistance());
         drivebase.setRight(OI.driveStick_right.getY());
-        
+        SmartDashboard.putNumber("Right Encoder", drivebase.getRightEncoder().getDistance());
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -44,6 +44,10 @@ public class ManualTankDrive extends CommandBase {
     protected void end() {
         drivebase.setLeft(0);
         drivebase.setRight(0);
+        drivebase.getLeftEncoder().reset();
+        drivebase.getRightEncoder().reset();
+        drivebase.getLeftEncoder().stop();
+        drivebase.getRightEncoder().stop();
         SmartDashboard.putBoolean("Tank", false);           //Tell Smart Dashboard we not in tank mode
     }
 

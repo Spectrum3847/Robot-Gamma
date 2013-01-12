@@ -4,5 +4,7 @@
 *.jar
 *.war
 *.ear
+
+/Infrared/nbproject/project.bak.xml
 /Infrared/nbproject/private/
 /Infrared/build/

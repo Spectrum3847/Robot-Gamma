@@ -1,4 +1,3 @@
-
 package framework;
 
 import edu.wpi.first.wpilibj.CANJaguar;

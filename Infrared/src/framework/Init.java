@@ -8,7 +8,8 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class Init {
 
-    public static Command tankdrive = new driver.ManualTankDrive();
+    public static Command tankdrive = new commands.drive.ManualTankDrive();
+    public static Command shooter = new commands.drive.ManualShoot();
 
     public static void init() {
     }
