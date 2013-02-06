@@ -40,7 +40,7 @@ public class ManualTankDrive extends CommandBase {
         return false;
     }
 
-    // Called once after isFinished returns true
+    // Called once after isFinished returns true or it is interrupted.
     protected void end() {
         drivebase.setLeft(0);
         drivebase.setRight(0);
@@ -48,7 +48,7 @@ public class ManualTankDrive extends CommandBase {
         drivebase.getRightEncoder().reset();
         drivebase.getLeftEncoder().stop();
         drivebase.getRightEncoder().stop();
-        SmartDashboard.putBoolean("Tank", false);           //Tell Smart Dashboard we not in tank mode
+        SmartDashboard.putBoolean("Tank", false);           //Tell Smart Dashboard we are not in tank mode
     }
 
     // Called when another command which requires one or more of the same

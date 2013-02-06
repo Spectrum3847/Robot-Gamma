@@ -17,7 +17,7 @@ public class SpectrumDrive extends RobotDrive{
     
      /**
      * Provide tank steering using the stored robot configuration.
-     * This function lets you directly provide joystick values from any source.
+     * The SpectrumDrive is a function that lets you directly provide joystick values from any source.
      * @param leftValue The value of the left stick.
      * @param rightValue The value of the right stick.
      */
