@@ -1,27 +1,28 @@
 package subsystems;
 
-import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import framework.HW;
 
-public class Shooter extends Subsystem {
+public class Solenoids extends Subsystem {
 
-    
-    private Jaguar motor;
-   
+    private Solenoid solenoid_1;
+
     // Initialize your subsystem here
-    public Shooter() {
-        super("Shooter");
-        
-        motor = new Jaguar(HW.FRONT_SHOOTER_MOTOR);
+    public Solenoids() {
+        super("Solenoids");
+        solenoid_1 = new Solenoid(1);
     }
-    
-    
+
     public void initDefaultCommand() {
     }
-    
-    //sets shooter motors to PWM value (-1.0->1.0)
-    public void setShooter(double speed){
-        motor.set(speed); 
+
+    public void solenoid_ON() {
+        solenoid_1.set(true);
+        System.out.println("Solenoid ON");
+    }
+
+    public void solenoid_OFF() {
+        solenoid_1.set(false);
+        System.out.println("Solenoid OFF");
     }
 }

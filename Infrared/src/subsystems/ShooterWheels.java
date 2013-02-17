@@ -4,16 +4,17 @@ import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import framework.HW;
 
-public class Shooter extends Subsystem {
+public class ShooterWheels extends Subsystem {
 
-    
-    private Jaguar motor;
+    private Jaguar Wheel1;
+    private Jaguar Wheel2;
    
     // Initialize your subsystem here
-    public Shooter() {
-        super("Shooter");
+    public ShooterWheels() {
+        super("ShooterWheels");
         
-        motor = new Jaguar(HW.FRONT_SHOOTER_MOTOR);
+        Wheel1 = new Jaguar(HW.SHOOTER_FRONT_MOTOR);
+        Wheel2 = new Jaguar(HW.SHOOTER_BACK_MOTOR);
     }
     
     
@@ -21,7 +22,19 @@ public class Shooter extends Subsystem {
     }
     
     //sets shooter motors to PWM value (-1.0->1.0)
-    public void setShooter(double speed){
-        motor.set(speed); 
+    public void setShooterWheel1(double speed){
+       Wheel1.set(speed);
+    }
+    
+    public void setShooterWheel2(double speed){
+        Wheel2.set(speed);
+    }
+    
+    public double getShooterWheel1(){
+        return Wheel1.get();
+    }
+    
+    public double getShooterWheel2(){
+        return Wheel2.get();
     }
 }

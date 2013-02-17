@@ -1,7 +1,5 @@
 package framework;
 
-import edu.wpi.first.wpilibj.CANJaguar;
-
 /**
  * The HW is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -9,31 +7,22 @@ import edu.wpi.first.wpilibj.CANJaguar;
  * floating around.
  */
 public class HW {
-    
-    /**AUTON DELAY SETTINGS**/
-    public static final int FIRST_DELAY = 5;
-    public static final int SECOND_DELAY = 3;
-
     /**DRIVEBASE MOTOR ASSIGNMENTS**/
-    public static final int FRONT_LDRIVE_MOTOR = 5;
-    public static final int REAR_LDRIVE_MOTOR = 6;
-    public static final int REAR_RDRIVE_MOTOR = 7;
-    public static final int FRONT_RDRIVE_MOTOR = 8;
+    public static final int FRONT_LDRIVE_MOTOR = 1;
+    public static final int REAR_LDRIVE_MOTOR = 2;
+    public static final int REAR_RDRIVE_MOTOR = 9;
+    public static final int FRONT_RDRIVE_MOTOR = 10;
+
+    public static final int SHOOTER_FRONT_MOTOR = 8;
+    public static final int SHOOTER_BACK_MOTOR = 3;
+    public static final int PADDLE_MOTOR = 5;
     
-    /**NON-DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
-    public static final int FRONT_SHOOTER_MOTOR = 1;
-    public static final int REAR_SHOOTER_MOTOR = 2;
-    public static final int LOADER_MOTOR = 3;
-    public static final int MAGAZINE_MOTOR = 4;
-    public static final int CHAMBER_MOTOR = 9;
-    
-    //Digital Input
-    public static final int PRESSURE_CHANNEl = 7;
-    
+    public static final int TILT_MOTOR = 4;
+    public static final int LIFT_MOTOR = 7;
     /**
      * SOLENOID CHANNELS
      */
-    public static final int RAINBOW = 1;
+    //public static final int solenoid = 1;
     
  
     /**PID CONSTANTS**/
@@ -108,6 +97,7 @@ public class HW {
     public static final int usbPort_one = 1;
     public static final int usbPort_two = 2;
     public static final int usbPort_three = 3;
+    public static final int usbPort_four = 4;
     
     
     /**SPEED/VELOCITY/DISTANCE DEFINITIONS**/
@@ -142,18 +132,6 @@ public class HW {
     public static final String CAMERA_IP = "10.38.47.33";
     public static final String CAMERA_PORT = "8882";
     public static final int BUFFER_SIZE = 50;
-    
-    
-    
-    /**JAGUAR DEFINE METHOD (CAN BUS)**/
-    public static CANJaguar defJaguar(int id){
-
-    CANJaguar jag = null;
-    try{
-    jag = new CANJaguar(id);
-    }catch(Exception e){System.err.println(e.getMessage());}
-    System.out.println("Connected to CANJaguar "+id);
-    return jag;
-    }
+   
     
 }

@@ -1,5 +1,6 @@
 package framework;
 
+import commands.CommandBase;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
@@ -9,12 +10,15 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Teleop {
         public static void init()
         {
-            Init.tankdrive.start();
-            Init.shooter.start();
+            Init.halodirve.start();
+            Init.shooterSpeed.start();
+            Init.lift.start();
+            System.out.println("Teleop Init");
         }
         
         public static void periodic()
         {
             Scheduler.getInstance().run();
+            //CommandBase.solendoids.solenoid_ON();
         }
 }

@@ -13,7 +13,11 @@ public abstract class CommandBase extends Command {
 
     public static OI oi;
     public static DriveBase drivebase = new DriveBase();
-    public static Shooter shoot = new Shooter();
+    public static ShooterWheels shooterWheels = new ShooterWheels();
+    public static ShooterPaddle shooterPaddle = new ShooterPaddle();
+    public static Solenoids solendoids = new Solenoids();
+    public static Lift lift = new Lift();
+    
     // Create a single static instance of all of your subsystems
 
 
@@ -32,6 +36,10 @@ public abstract class CommandBase extends Command {
 
     public CommandBase(String name) {
         super(name);
+    }
+    
+    public CommandBase(String name, int timeout) {
+        super(name, timeout);
     }
 
     public CommandBase() {

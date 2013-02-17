@@ -1,17 +1,15 @@
-package commands.drive;
-
-import commands.CommandBase;
-import edu.wpi.first.wpilibj.Joystick;
-import framework.OI;
+package commands;
 
 /**
  *
  * @author matthew
  */
-public class ManualShoot extends CommandBase {
+public class ShootDisc extends CommandBase {
     
-    public ManualShoot() {
-        requires(CommandBase.shoot);
+    private static int timeout = 2;
+    public ShootDisc() {
+        super("ShootDisc", timeout);
+        requires(shooterPaddle);
     }
     
     protected void initialize() {
@@ -20,15 +18,15 @@ public class ManualShoot extends CommandBase {
 
     protected void execute() {
         //shoot.setShooter((OI.driveStick_right.getAxis(Joystick.AxisType.kZ)+1)/2);
-        shoot.setShooter(OI.driveStick_right.getAxis(Joystick.AxisType.kZ));
+        shooterPaddle.FWD();
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
-        shoot.setShooter(0);
+        shooterPaddle.off();
     }
 
     protected void interrupted() {
