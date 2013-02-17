@@ -1,6 +1,9 @@
 package framework;
 
+import driver.Gamepad;
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 
 /**
@@ -9,11 +12,15 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class OI {
     
-    public static final Joystick driveStick_left = new Joystick(HW.usbPort_two);
-    public static final Joystick driveStick_right = new Joystick(HW.usbPort_one);
+    public static final Gamepad gamepad = new Gamepad(HW.usbPort_one);
+    public static final Gamepad gamepad_aux = new Gamepad(HW.usbPort_two);
+    
+    public static final Button flick = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.RIGHT_BUMPER);
+    public static final Button flick2 = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.LEFT_BUMPER);
     
         //Use this constructor to setup up button schedulers for commands
     public OI() {
-        
+        flick.whileHeld(Init.flickshooter);
+        flick2.whileHeld(Init.flickshooter);
     }
 }

@@ -1,7 +1,13 @@
 package subsystems;
 
 import driver.SpectrumDrive;
-import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.AnalogChannel;
+import edu.wpi.first.wpilibj.CounterBase;
+import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Gyro;
+import edu.wpi.first.wpilibj.PIDController;
+import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import framework.HW;
 import framework.Init;
@@ -13,8 +19,8 @@ import framework.Init;
 public class DriveBase extends PIDSubsystem {
     
      //Drive Motor Controller
-     private Jaguar jag_1,jag_2,jag_3,jag_4;
-     private Jaguar[] jag_arr;
+     private Victor vic_1,vic_2,vic_3,vic_4;
+     private Victor[] vic_arr;
      private SpectrumDrive spectrumDrive;
      
      //Drive Encoders
@@ -36,16 +42,16 @@ public class DriveBase extends PIDSubsystem {
     
      public DriveBase(){
          super(HW.SKEW_KP,HW.SKEW_KI,HW.SKEW_KD);
-         setJaguars();
-         spectrumDrive = new SpectrumDrive(jag_1, jag_2, jag_3, jag_4);
+         setVictors();
+         spectrumDrive = new SpectrumDrive(vic_1, vic_2, vic_3, vic_4);
          spectrumDrive.setMaxOutput(1.0);
          left_encoder = new Encoder(HW.LDRIVE_ENCODER_A,HW.LDRIVE_ENCODER_B,true,CounterBase.EncodingType.k1X);
          left_encoder.setDistancePerPulse(HW.DRIVEBASE_PULSE);
          right_encoder = new Encoder(HW.RDRIVE_ENCODER_A,HW.RDRIVE_ENCODER_B,true,CounterBase.EncodingType.k1X);
          right_encoder.setDistancePerPulse(HW.DRIVEBASE_PULSE);
-         x_gyro_raw = new AnalogChannel(HW.X_GYRO_CHANNEL);
-         x_gyro_raw.setAverageBits(2); //Get 4 samples of gyro data and average them for the raw output
-         x_gyro = new Gyro(x_gyro_raw);
+         //x_gyro_raw = new AnalogChannel(HW.X_GYRO_CHANNEL);
+         //x_gyro_raw.setAverageBits(2); //Get 4 samples of gyro data and average them for the raw output
+         //x_gyro = new Gyro(x_gyro_raw);
          this.getPIDController().setOutputRange(-1, 1);
          this.getPIDController().setInputRange(-360, 360);
          this.getPIDController().setAbsoluteTolerance(tolerance);
@@ -58,7 +64,7 @@ public class DriveBase extends PIDSubsystem {
       * re-enabled after breaking or turning.
       */
     public void initDefaultCommand(){
-        setDefaultCommand(Init.tankdrive);   // set default command
+        setDefaultCommand(Init.gamepaddrive);   // set default command
     }
     
     /**
@@ -192,11 +198,11 @@ public class DriveBase extends PIDSubsystem {
     
     
     public void setLeft(double left_speed){
-        spectrumDrive.tankDrive(left_speed, jag_3.get());
+        spectrumDrive.tankDrive(left_speed, vic_3.get());
     }
     
     public void setRight(double right_speed){
-        spectrumDrive.tankDrive(jag_1.get(), right_speed);
+        spectrumDrive.tankDrive(vic_1.get(), right_speed);
     }
     
     public void setArcade(double straight_speed, double turn_speed){
@@ -212,45 +218,28 @@ public class DriveBase extends PIDSubsystem {
         setLeft(-1*speed);
         setRight(speed);
     }
-
-    /**
-     * START INIT COMMANDS
-     */
     
-/*    private void setCANJaguars(){
-        try{
-        jag_arr = new CANJaguar[4];
-        jag_1 = HW.defJaguar(3);//new CANJaguar(3); //Front Left 7
-        jag_arr[0] = jag_1;
-        jag_2 = HW.defJaguar(2);//new CANJaguar(2); //Rear Left 8
-        jag_arr[1] = jag_2;
-        jag_3 = HW.defJaguar(1); //new CANJaguar(1); //Front Right 6
-        jag_arr[2] = jag_3;
-        jag_4 = HW.defJaguar(6); //new CANJaguar(6); //Rear Right 5
-        jag_arr[3] = jag_4;
-        }catch(Exception e){System.out.println("Failed to initialize CAN");}
-    }*/
-    
-    private void setJaguars(){
-        jag_arr = new Jaguar[4];
-        jag_1 = new Jaguar(HW.FRONT_LDRIVE_MOTOR);//new CANJaguar(3); //Front Left 7
-        jag_arr[0] = jag_1;
-        jag_2 = new Jaguar(HW.REAR_LDRIVE_MOTOR);//new CANJaguar(2); //Rear Left 8
-        jag_arr[1] = jag_2;
-        jag_3 = new Jaguar(HW.FRONT_RDRIVE_MOTOR); //new CANJaguar(1); //Front Right 6
-        jag_arr[2] = jag_3;
-        jag_4 = new Jaguar(HW.REAR_RDRIVE_MOTOR); //new CANJaguar(6); //Rear Right 5
-        jag_arr[3] = jag_4;
+    private void setVictors(){
+        vic_arr = new Victor[4];
+        vic_1 = new Victor(HW.FRONT_LDRIVE_MOTOR);
+        vic_arr[0] = vic_1;
+        vic_2 = new Victor(HW.REAR_LDRIVE_MOTOR);
+        vic_arr[1] = vic_2;
+        vic_3 = new Victor(HW.FRONT_RDRIVE_MOTOR);
+        vic_arr[2] = vic_3;
+        vic_4 = new Victor(HW.REAR_RDRIVE_MOTOR);
+        vic_arr[3] = vic_4;
     }
-    /**
+    
+    /*
      * END INIT COMMANDS
      */
     
-    public Jaguar getJaguar(int id){
-        return jag_arr[id-1];
+    public Victor getVictor(int id){
+        return vic_arr[id-1];
     }
     
-    public Jaguar[] getJagArr(){
-        return jag_arr;
+    public Victor[] getVicArr(){
+        return vic_arr;
     }
 }

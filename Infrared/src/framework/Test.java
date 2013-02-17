@@ -6,12 +6,11 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  *
  * @author matthew
  */
-public class Teleop {
+public class Test {
         public static void init()
         {
             Init.gamepaddrive.start();
             Init.shooter.start();
-            Init.liftcontrol.start();
             Init.test.start();
         }
         

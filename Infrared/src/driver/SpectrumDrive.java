@@ -1,7 +1,7 @@
 package driver;
 
-import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.Victor;
 
 /**
  *
@@ -11,13 +11,13 @@ public class SpectrumDrive extends RobotDrive{
     
     public static final double DEADBAND_VALUE = .13;
     
-    public SpectrumDrive(Jaguar jag1, Jaguar jag2, Jaguar jag3, Jaguar jag4){
-        super(jag1, jag2, jag3, jag4);
+    public SpectrumDrive(Victor vic1, Victor vic2, Victor vic3, Victor vic4){
+        super(vic1, vic2, vic3, vic4);
     }
     
      /**
      * Provide tank steering using the stored robot configuration.
-     * The SpectrumDrive is a function that lets you directly provide joystick values from any source.
+     * This function lets you directly provide joystick values from any source.
      * @param leftValue The value of the left stick.
      * @param rightValue The value of the right stick.
      */
