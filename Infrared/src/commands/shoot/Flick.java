@@ -1,33 +1,36 @@
-
 package commands.shoot;
 
 import commands.CommandBase;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
  * @author matthew
  */
 public class Flick extends CommandBase {
+    Timer time;
 
     protected void initialize() {
-        shooter.flickShooter(false);
+        time  = new Timer();
+        time.start();
     }
 
     protected void execute() {
-        shooter.flickShooter(true);
+        shooter.setFlick(time.get()<0.25?0.9:-0.6);
     }
 
     protected boolean isFinished() {
-        return false;
+        return time.get()>0.4?true:false;
     }
 
     protected void end() {
-        shooter.flickShooter(false);
+        time.stop();
+        shooter.setFlick(0);
     }
 
     protected void interrupted() {
-        shooter.flickShooter(false);
+        time.stop();
+        shooter.setFlick(0);
     }
 
 }

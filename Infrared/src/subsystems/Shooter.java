@@ -54,9 +54,8 @@ public class Shooter extends Subsystem {
         tiltmotor.set(speed/2);
     }
     
-    public void flickShooter(boolean a) {
-        flickmotor.set(a?0.9:0);
-        System.out.println("Flick");
+    public void setFlick(double speed) {
+        flickmotor.set(speed);
     }
     
     public double getRate() {

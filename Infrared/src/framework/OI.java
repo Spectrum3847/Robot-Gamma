@@ -1,7 +1,6 @@
 package framework;
 
 import driver.Gamepad;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
@@ -20,7 +19,9 @@ public class OI {
     
         //Use this constructor to setup up button schedulers for commands
     public OI() {
-        flick.whileHeld(Init.flickshooter);
-        flick2.whileHeld(Init.flickshooter);
+        //flick.whileHeld(Init.flickshooter);
+        //flick2.whileHeld(Init.unflickshooter);
+        flick.whenPressed(Init.flick);
+        flick2.whenPressed(Init.flick);
     }
 }

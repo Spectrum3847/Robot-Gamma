@@ -1,5 +1,6 @@
 package commands;
 
+import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.command.Command;
 import framework.OI;
 import subsystems.*;
@@ -15,6 +16,9 @@ public abstract class CommandBase extends Command {
     public static DriveBase drivebase = new DriveBase();
     public static Shooter shooter = new Shooter();
     public static Lift lift = new Lift();
+    
+    //public static DriverStationLCD lcd = DriverStationLCD.getInstance();
+    
     // Create a single static instance of all of your subsystems
 
     public static void init() {
