@@ -22,7 +22,7 @@ public class ManualShootCollect extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setShooter(-OI.gamepad_aux.getTriggers() + -abs(OI.gamepad.getTriggers()));
+        shooter.setShooter(-OI.gamepad_aux.getTriggers() + -abs(OI.gamepad.getTriggers())/4);
         shooter.setTiltMotor(OI.gamepad_aux.getRightY());
         
         SmartDashboard.putNumber("ShooterRate", shooter.getRate());
