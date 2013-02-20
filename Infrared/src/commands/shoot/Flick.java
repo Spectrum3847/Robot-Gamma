@@ -16,7 +16,7 @@ public class Flick extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setFlick(time.get()<0.25?0.9:-0.6);
+        shooter.setFlick(time.get()<0.25?0.75:-0.6);
     }
 
     protected boolean isFinished() {
