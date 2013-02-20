@@ -22,13 +22,11 @@ public class ManualShootCollect extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setRearMotor(-OI.gamepad_aux.getTriggers() + -abs(OI.gamepad.getTriggers()));
-        if (shooter.getRearMotor() < 0){
-            shooter.setFrontMotor(shooter.getRearMotor()/4);
-        }
-        else{
-            shooter.setFrontMotor(shooter.getRearMotor());
-        }
+        double trigger_val = -OI.gamepad_aux.getTriggers() + -abs(OI.gamepad.getTriggers());
+        
+        shooter.setFrontMotor(trigger_val/(trigger_val<0?4:1));
+        shooter.setRearMotor(trigger_val);
+        
         shooter.setTiltMotor(OI.gamepad_aux.getRightY());
         
         SmartDashboard.putNumber("ShooterRate", shooter.getRate());
