@@ -221,13 +221,13 @@ public class DriveBase extends PIDSubsystem {
     
     private void setVictors(){
         vic_arr = new Victor[4];
-        vic_1 = new Victor(HW.FRONT_RDRIVE_MOTOR);
+        vic_1 = new Victor(HW.FRONT_LDRIVE_MOTOR);
         vic_arr[0] = vic_1;
-        vic_2 = new Victor(HW.REAR_RDRIVE_MOTOR);
+        vic_2 = new Victor(HW.REAR_LDRIVE_MOTOR);
         vic_arr[1] = vic_2;
-        vic_3 = new Victor(HW.FRONT_LDRIVE_MOTOR);
+        vic_3 = new Victor(HW.FRONT_RDRIVE_MOTOR);
         vic_arr[2] = vic_3;
-        vic_4 = new Victor(HW.REAR_LDRIVE_MOTOR);
+        vic_4 = new Victor(HW.REAR_RDRIVE_MOTOR);
         vic_arr[3] = vic_4;
     }
     

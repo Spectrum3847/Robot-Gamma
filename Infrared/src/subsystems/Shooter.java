@@ -13,7 +13,7 @@ public class Shooter extends Subsystem {
     private Jaguar motor_f, motor_r, tiltmotor;
     private OpticalEncoder encoder;
     public DigitalInput encoder_in;
-    private final Jaguar flickmotor;
+    private final Victor flickmotor;
    
     // Initialize your subsystem here
     public Shooter() {
@@ -27,7 +27,7 @@ public class Shooter extends Subsystem {
         
         tiltmotor = new Jaguar(HW.TILT_SHOOTER_MOTOR);
         
-        flickmotor = new Jaguar(HW.FLICK_SHOOTER_MOTOR);
+        flickmotor = new Victor(HW.FLICK_SHOOTER_MOTOR);
         
         encoder.start();
     }
@@ -54,15 +54,9 @@ public class Shooter extends Subsystem {
         tiltmotor.set(speed/2);
     }
     
-    public double getFrontMotor (){
-        return motor_f.get();
-    }
- 
-    public double getRearMotor (){
-        return motor_f.get();
-    }
-    public void setFlick(double speed) {
-        flickmotor.set(speed);
+    public void flickShooter(boolean a) {
+        flickmotor.set(a?0.9:0);
+        System.out.println("Flick");
     }
     
     public double getRate() {

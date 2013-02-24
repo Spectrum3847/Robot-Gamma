@@ -22,7 +22,7 @@ public class Init {
     
     public static Command manualcollect = new ManualShootCollect();
     
-    public static Command flick = new Flick();
+    public static Command flickshooter = new Flick();
     
     public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
     public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);

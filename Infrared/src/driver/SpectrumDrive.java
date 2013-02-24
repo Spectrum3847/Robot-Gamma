@@ -47,16 +47,16 @@ public class SpectrumDrive extends RobotDrive{
         rotateValue = limit(rotateValue);
 
         if (squaredInputs) {
-            // cube the inputs (while preserving the sign) to increase fine control while permitting full power
+            // square the inputs (while preserving the sign) to increase fine control while permitting full power
             if (moveValue >= 0.0) {
-                moveValue = (moveValue * moveValue * moveValue);
+                moveValue = (moveValue * moveValue);
             } else {
-                moveValue = (moveValue * moveValue * moveValue);
+                moveValue = -(moveValue * moveValue);
             }
             if (rotateValue >= 0.0) {
-                rotateValue = (rotateValue * rotateValue * rotateValue);
+                rotateValue = (rotateValue * rotateValue);
             } else {
-                rotateValue = (rotateValue * rotateValue * rotateValue);
+                rotateValue = -(rotateValue * rotateValue);
             }
         }
 
@@ -84,7 +84,7 @@ public class SpectrumDrive extends RobotDrive{
     
     private double deadBand(double input, double dead){
         double output = 0;
-        if (input < 0 && input > -dead){    //Check if were in negative deadband
+        if (input < 0 && input > -1 * dead){    //Check if were in negative deadband
         } else if (input > 0 && input < dead){  //Check if were in positive deadband
         } else {
             output = input;

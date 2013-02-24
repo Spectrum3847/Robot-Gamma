@@ -1,6 +1,9 @@
 package subsystems;
 
+import driver.OpticalEncoder;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
+import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import framework.HW;
 

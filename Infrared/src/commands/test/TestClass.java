@@ -1,9 +1,8 @@
+
 package commands.test;
 
-import com.sun.squawk.platform.posix.natives.Time;
 import commands.CommandBase;
 import driver.MagEncoder;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -11,12 +10,16 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author matthew
  */
 public class TestClass extends CommandBase {
+    private MagEncoder encoder0;
 
     protected void initialize() {
+        encoder0 = new MagEncoder(11, 12, 13);
+        encoder0.start();
     }
 
     protected void execute() {
-        SmartDashboard.putNumber("Alive", Timer.getFPGATimestamp());
+        SmartDashboard.putNumber("MagEncoder", encoder0.getPulseWidth());
+        SmartDashboard.putNumber("MagEncoder Angle", encoder0.getAngle());
     }
 
     protected boolean isFinished() {
@@ -24,7 +27,7 @@ public class TestClass extends CommandBase {
     }
 
     protected void end() {
-        SmartDashboard.putNumber("Alive", 0);
+        encoder0.stop();
     }
 
     protected void interrupted() {
