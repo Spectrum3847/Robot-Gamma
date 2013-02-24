@@ -9,9 +9,6 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Test {
         public static void init()
         {
-            Init.gamepaddrive.start();
-            Init.shooter.start();
-            Init.test.start();
         }
         
         public static void periodic()

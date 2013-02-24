@@ -8,10 +8,13 @@ package framework;
  */
 public class HW {
     /**DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
-    public static final int FRONT_LDRIVE_MOTOR = 10;
-    public static final int REAR_LDRIVE_MOTOR = 9;
-    public static final int FRONT_RDRIVE_MOTOR = 1;
-    public static final int REAR_RDRIVE_MOTOR = 2;
+    public static final int FRONT_RDRIVE_MOTOR = 10;
+    public static final int REAR_RDRIVE_MOTOR = 9;
+    public static final int FRONT_LDRIVE_MOTOR = 1;
+    public static final int REAR_LDRIVE_MOTOR = 2;
+    
+    /** Kludge **/
+    public static final int MIDDLE_LDRIVE_MOTOR = 5;
     
     /**NON-DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
     public static final int FRONT_SHOOTER_MOTOR = 8;

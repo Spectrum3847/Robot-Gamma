@@ -1,4 +1,3 @@
-
 package driver;
 
 import edu.wpi.first.wpilibj.Counter;
