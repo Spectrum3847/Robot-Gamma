@@ -5,12 +5,14 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.HW;
+import framework.Init;
 
 public class Shooter extends Subsystem {
 
     
-    private Jaguar motor_f, motor_r, tiltmotor;
+    private Jaguar motor_f, motor_r;
     private OpticalEncoder encoder;
     public DigitalInput encoder_in;
     private final Jaguar flickmotor;
@@ -24,9 +26,6 @@ public class Shooter extends Subsystem {
         
         motor_f = new Jaguar(HW.FRONT_SHOOTER_MOTOR);
         motor_r = new Jaguar(HW.REAR_SHOOTER_MOTOR);
-        
-        tiltmotor = new Jaguar(HW.TILT_SHOOTER_MOTOR);
-        
         flickmotor = new Jaguar(HW.FLICK_SHOOTER_MOTOR);
         
         encoder.start();
@@ -34,6 +33,7 @@ public class Shooter extends Subsystem {
     
     
     public void initDefaultCommand() {
+        setDefaultCommand(Init.manualshootcollect);   // set default command
     }
     
     //sets shooter motors to PWM value (-1.0->1.0)
@@ -50,8 +50,12 @@ public class Shooter extends Subsystem {
         motor_r.set(speed);
     }
     
-    public void setTiltMotor(double speed) {
-        tiltmotor.set(speed/2);
+    public void setFrontMotorDashboard(){
+        setFrontMotor(SmartDashboard.getNumber("FrontMotorInput"));
+    }
+    
+    public void setRearMotorDashboard(){
+        setRearMotor(SmartDashboard.getNumber("RearMotorInput"));
     }
     
     public double getFrontMotor (){
@@ -59,7 +63,7 @@ public class Shooter extends Subsystem {
     }
  
     public double getRearMotor (){
-        return motor_f.get();
+        return motor_r.get();
     }
     public void setFlick(double speed) {
         flickmotor.set(speed);

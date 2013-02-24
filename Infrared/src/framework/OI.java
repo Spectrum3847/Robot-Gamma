@@ -14,14 +14,28 @@ public class OI {
     public static final Gamepad gamepad = new Gamepad(HW.usbPort_one);
     public static final Gamepad gamepad_aux = new Gamepad(HW.usbPort_two);
     
+    public static final Button CheesyDriveBTN = new JoystickButton(gamepad.getGamepad(),Gamepad.BACK_BUTTON);
+    public static final Button GamePadDriveBTN = new JoystickButton(gamepad.getGamepad(),Gamepad.START_BUTTON);
+    
     public static final Button flick = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.RIGHT_BUMPER);
     public static final Button flick2 = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.LEFT_BUMPER);
     
+    public static final Button dashboard_shoot = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.A_BUTTON);
+    
+    public static final Button lockTilt = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.RIGHT_CLICK);
+    
+    
+
         //Use this constructor to setup up button schedulers for commands
     public OI() {
-        //flick.whileHeld(Init.flickshooter);
-        //flick2.whileHeld(Init.unflickshooter);
+        
+        CheesyDriveBTN.whenPressed(Init.cheesydrive);
+        GamePadDriveBTN.whenPressed(Init.gamepaddrive);
         flick.whenPressed(Init.flick);
         flick2.whenPressed(Init.flick);
+        
+        dashboard_shoot.toggleWhenPressed(Init.dashboardShoot);
+        
+        lockTilt.toggleWhenPressed(Init.locktilt);
     }
 }

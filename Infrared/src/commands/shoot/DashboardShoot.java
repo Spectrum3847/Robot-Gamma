@@ -2,31 +2,25 @@ package commands.shoot;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import framework.OI;
 
 /**
  *
  * @author matthew
  */
-public class ManualShootCollect extends CommandBase {
+public class DashboardShoot extends CommandBase {
     
-    private static double abs(double a) {
-        return a<0?-a:a;
-    }
-    
-    public ManualShootCollect() {
+    public DashboardShoot() {
         requires(CommandBase.shooter);
     }
     
     protected void initialize() {
+        SmartDashboard.putBoolean("dashboardShootingCMD", true);
+
     }
 
     protected void execute() {
-        double trigger_val = -OI.gamepad_aux.getTriggers();// + -abs(OI.gamepad.getTriggers());
-        
-        shooter.setFrontMotor(trigger_val/(trigger_val<0?4:1));                             //If we are collecting divide the front wheel by 4
-        shooter.setRearMotor(trigger_val);
-        
+        shooter.setFrontMotorDashboard();                             //If we are collecting divide the front wheel by 4
+        shooter.setRearMotorDashboard();
         SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());
         SmartDashboard.putNumber("ShooterRear", shooter.getRearMotor());
         
@@ -39,6 +33,8 @@ public class ManualShootCollect extends CommandBase {
     protected void end() {
         shooter.setShooter(0);
         shooter.getEncoder().stop();
+        
+        SmartDashboard.putBoolean("dashboardShootingCMD", false);
     }
 
     protected void interrupted() {

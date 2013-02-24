@@ -2,6 +2,7 @@ package commands.driving;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Init;
 import framework.OI;
 
 
@@ -16,6 +17,7 @@ public class ManualGamepadDrive extends CommandBase {
     
     // Called just before this Command runs the first time
     protected void initialize() {
+     Init.driveSelector.setDefaultDriveMode(this);
      drivebase.disableTurnController();
      SmartDashboard.putBoolean("Gamepad", true);           //Tell Smart Dashboard we are in tank mode
     }

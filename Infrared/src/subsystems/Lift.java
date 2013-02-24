@@ -25,5 +25,6 @@ public class Lift extends Subsystem{
     //sets shooter motors to PWM value (-1.0->1.0)
     public void setSpeed(double speed){
         motor.set(speed); 
+        
     }
 }

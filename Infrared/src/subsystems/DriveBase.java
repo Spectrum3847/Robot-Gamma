@@ -201,12 +201,28 @@ public class DriveBase extends PIDSubsystem {
         spectrumDrive.tankDrive(left_speed, vic_3.get());
     }
     
+    public double getLeft(){
+        return vic_1.get();
+    }
+    
     public void setRight(double right_speed){
         spectrumDrive.tankDrive(vic_1.get(), right_speed);
     }
     
+    public double getRight(){
+        return vic_3.get();
+    }
+    
     public void setArcade(double straight_speed, double turn_speed){
         spectrumDrive.arcadeDrive(straight_speed, turn_speed, true);
+    }
+    
+    public void setCheesyDrive(double throttle, double wheel, boolean quickTurn){
+        spectrumDrive.Cheesydrive(throttle,-1* wheel, quickTurn);
+    }
+    
+    public void setCheesySensetivity(double sensetivity){
+        spectrumDrive.setsensitivity(sensetivity);
     }
     
     public void turnLeft(double speed){
