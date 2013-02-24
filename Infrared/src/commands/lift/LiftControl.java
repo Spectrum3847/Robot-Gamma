@@ -1,4 +1,3 @@
-
 package commands.lift;
 
 import commands.CommandBase;
