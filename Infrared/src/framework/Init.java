@@ -19,7 +19,7 @@ public class Init {
 
     
     public static final DriveSelector driveSelector = new DriveSelector();
-    public static Command gamepaddrive = new commands.driving.ManualGamepadDrive();
+    public static Command gamepaddrive = new commands.driving.HaloDrive();
     public static Command cheesydrive = new commands.driving.CheesyDrive();
     public static Command shooter = new commands.shoot.ManualShootCollect();
     public static Command dashboardShoot = new commands.shoot.DashboardShoot();

@@ -19,10 +19,10 @@ public class HW {
     /**NON-DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
     public static final int FRONT_SHOOTER_MOTOR = 8;
     public static final int REAR_SHOOTER_MOTOR = 7;
-    public static final int TILT_SHOOTER_MOTOR = 4;
+    public static final int TILT_SHOOTER_MOTOR = 3;
     public static final int FLICK_SHOOTER_MOTOR = 6;
     
-    public static final int LIFT_MOTOR = 3;
+    public static final int LIFT_MOTOR = 4;
     
     /**PID CONSTANTS**/
     

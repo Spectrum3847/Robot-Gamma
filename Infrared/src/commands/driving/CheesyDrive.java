@@ -22,6 +22,9 @@ public class CheesyDrive extends CommandBase {
      Init.driveSelector.setDefaultDriveMode(this);
      drivebase.disableTurnController();
      SmartDashboard.putBoolean("Cheesy", true);           //Tell Smart Dashboard we are in cheesy mode
+     drivebase.getLeftEncoder().start();
+     drivebase.getRightEncoder().start();
+     drivebase.getLeftEncoder().setReverseDirection(false);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -43,6 +46,11 @@ public class CheesyDrive extends CommandBase {
         SmartDashboard.putNumber("Throttle", throttle);
         SmartDashboard.putNumber("Wheel", wheel);
         
+        SmartDashboard.putNumber("Left Encoder", drivebase.getLeftEncoder().get());
+        SmartDashboard.putNumber("Right Encoder", drivebase.getRightEncoder().get());
+        SmartDashboard.putNumber("Left Velocity", drivebase.getLeftVelocity());
+        SmartDashboard.putNumber("Right Velocity", drivebase.getRightVelocity());
+        
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -54,6 +62,8 @@ public class CheesyDrive extends CommandBase {
     protected void end() {
         drivebase.setArcade(0, 0);
         SmartDashboard.putBoolean("Cheesy", false);           //Tell Smart Dashboard we not in tank mode
+        drivebase.getLeftEncoder().stop();
+        drivebase.getRightEncoder().stop();
     }
 
     // Called when another command which requires one or more of the same

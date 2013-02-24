@@ -2,8 +2,6 @@ package commands.shoot;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import framework.Init;
-import framework.OI;
 
 /**
  *

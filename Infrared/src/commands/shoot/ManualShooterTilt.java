@@ -3,6 +3,7 @@ package commands.shoot;
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.OI;
+import framework.Utilities;
 
 /**
  *
@@ -17,7 +18,7 @@ public class ManualShooterTilt extends CommandBase {
     }
 
     protected void execute() {
-        shooterTilt.setSpeed(OI.gamepad_aux.getRightY());
+        shooterTilt.setSpeed(Utilities.deadBand(OI.gamepad_aux.getRightY(), 0.1));
         SmartDashboard.putNumber("shooterTilt", shooterTilt.getSpeed());
     }
 

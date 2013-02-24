@@ -10,8 +10,7 @@ import framework.Init;
  */
 public class Auton extends CommandGroup
 {
-    public Auton()
-    {
+    public Auton() {
         super();
         requires(CommandBase.drivebase);
         addParallel(Init.lautodrive);
@@ -29,13 +28,13 @@ public class Auton extends CommandGroup
     }
     
     // Called at end of Command
-    public void end(){
+    public void end() {
         Init.lautodrive.getController().reset();
         Init.rautodrive.getController().reset();
     }
     
     // Call end() if interrupted
-    public void interrupted(){
+    public void interrupted() {
         end();
     }
 }

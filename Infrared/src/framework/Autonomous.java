@@ -6,11 +6,9 @@ package framework;
 public class Autonomous {
         public static void init()
         {
-                
         }
         
         public static void periodic()
-        {
-                
+        {  
         }
 }

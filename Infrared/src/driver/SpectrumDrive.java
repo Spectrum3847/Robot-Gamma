@@ -80,7 +80,7 @@ public class SpectrumDrive extends RobotDrive{
         setLeftRightMotorOutputs(lPower, rPower);
     }
     
-    public void setsensitivity(double sensitivity){
+    public void setSensitivity(double sensitivity){
         tSens = sensitivity;
     }
     

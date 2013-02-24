@@ -9,8 +9,8 @@ import framework.OI;
 /*
  * @author Matthew
  */
-public class ManualGamepadDrive extends CommandBase {
-    public ManualGamepadDrive()
+public class HaloDrive extends CommandBase {
+    public HaloDrive()
     {
         requires(CommandBase.drivebase);
     }
