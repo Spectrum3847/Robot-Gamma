@@ -30,7 +30,7 @@ public class HW {
     public static final double EBRAKE_KP = 10;
     public static final double EBRAKE_KI = 0.0;
     public static final double DRIVEBASE_KD = 3;
-    public static final double DRIVEBASE_PULSE = (1.0 / 1080.0);
+    public static final double DRIVEBASE_PULSE = (1.0 / 4096.0);
     public static final double EBRAKE_SETPOINT = 0.0;
     public static final double EBRAKE_INCREMENT = 2;
     //36:12 GEAR RATIO, measured in REV PER SEC.

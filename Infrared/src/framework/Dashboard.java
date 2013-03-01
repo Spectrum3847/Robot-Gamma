@@ -35,6 +35,14 @@ public class Dashboard {
             /*if (TURN_PID_TUNING) {
                 SmartDashboard.putData(CommandBase.drivebase);
             }*/
+            
+            SmartDashboard.putNumber("Auton Tilt Speed", 0.0);
+            SmartDashboard.putNumber("Lift Auton Speed", 0.0);
+            SmartDashboard.putNumber("DriveBase Auton Speed", 0.0);
+            
+            SmartDashboard.putNumber("Auton Collect Drive Time", 0.0);
+            SmartDashboard.putNumber("Auton Lift Time", 0.0);
+            SmartDashboard.putNumber("Auton Fire Time", 0.0);
         }
     }
 

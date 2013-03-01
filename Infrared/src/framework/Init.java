@@ -1,6 +1,7 @@
 package framework;
 
 import commands.CommandBase;
+import commands.autonomousgroup.Auton;
 import commands.driving.AutonomousDistanceLeft;
 import commands.driving.AutonomousDistanceRight;
 import commands.driving.DriveSelector;
@@ -10,6 +11,7 @@ import commands.shoot.LockTilt;
 import commands.shoot.ManualShootCollect;
 import commands.shoot.ManualShooterTilt;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
@@ -36,6 +38,8 @@ public class Init {
     
     public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
     public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
+    
+    //public static CommandGroup auton = new Auton();
 
     public static void init() {
         CommandBase.init();
