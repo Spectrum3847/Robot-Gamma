@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class Disabled {
         public static void init()
         {
-                
+                Init.autonfourdisc.cancel();
         }
         static int t = 0;
         static boolean b = true;

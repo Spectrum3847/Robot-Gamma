@@ -9,6 +9,10 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Flick extends CommandBase {
     Timer time;
+    double flickOutTime = .25;
+    double flickOutPower = 0.8;
+    double flickInTime = 0.15;
+    double flickInPower = -.6;
 
     protected void initialize() {
         time  = new Timer();
@@ -16,11 +20,11 @@ public class Flick extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setFlick(time.get()<0.25?0.75:-0.6);
+        shooter.setFlick(time.get()<flickOutTime?flickOutPower:flickInPower);
     }
 
     protected boolean isFinished() {
-        return time.get()>0.4?true:false;
+        return time.get()>(flickOutTime + flickInTime)?true:false;
     }
 
     protected void end() {
@@ -29,8 +33,7 @@ public class Flick extends CommandBase {
     }
 
     protected void interrupted() {
-        time.stop();
-        shooter.setFlick(0);
+        end();
     }
 
 }

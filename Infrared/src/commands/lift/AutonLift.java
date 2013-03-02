@@ -10,6 +10,7 @@ import framework.OI;
  */
 public class AutonLift extends CommandBase {
     protected void initialize() {
+        setTimeout(SmartDashboard.getNumber("Auton Lift Time"));
     }
 
     protected void execute() {
@@ -17,13 +18,15 @@ public class AutonLift extends CommandBase {
     }
 
     protected boolean isFinished() {
-        return false;
+        return isTimedOut();
     }
 
     protected void end() {
+        lift.setSpeed(0.0);
     }
 
     protected void interrupted() {
+        end();
     }
     
 }

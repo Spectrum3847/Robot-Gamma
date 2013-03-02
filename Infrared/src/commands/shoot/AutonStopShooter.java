@@ -1,30 +1,26 @@
 package commands.shoot;
 
 import commands.CommandBase;
-import framework.Init;
 
 /**
  *
  * @author matthew
  */
-public class AutonFire extends CommandBase {
+public class AutonStopShooter extends CommandBase {
 
     protected void initialize() {
+        shooter.setFrontMotor(0.0);                             //Set shooter speed
+        shooter.setRearMotor(0.0);
     }
 
     protected void execute() {
-        shooter.setFrontMotorDashboard();
-        shooter.setRearMotorDashboard();
-        Init.flick.start();
     }
 
     protected boolean isFinished() {
-        return Init.flick.isCanceled();
+        return true;
     }
 
     protected void end() {
-        shooter.setFrontMotor(0);
-        shooter.setRearMotor(0);
     }
 
     protected void interrupted() {

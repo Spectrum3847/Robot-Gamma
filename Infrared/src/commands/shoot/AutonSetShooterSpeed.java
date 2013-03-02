@@ -1,30 +1,27 @@
 package commands.shoot;
 
 import commands.CommandBase;
-import framework.Init;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
  * @author matthew
  */
-public class AutonFire extends CommandBase {
+public class AutonSetShooterSpeed extends CommandBase {
 
     protected void initialize() {
     }
 
     protected void execute() {
-        shooter.setFrontMotorDashboard();
-        shooter.setRearMotorDashboard();
-        Init.flick.start();
+        shooter.setFrontMotor(SmartDashboard.getNumber("Auton Shooter Front Speed"));                             //Set shooter speed
+        shooter.setRearMotor(SmartDashboard.getNumber("Auton Shooter Rear Speed"));
     }
 
     protected boolean isFinished() {
-        return Init.flick.isCanceled();
+        return false;
     }
 
     protected void end() {
-        shooter.setFrontMotor(0);
-        shooter.setRearMotor(0);
     }
 
     protected void interrupted() {
