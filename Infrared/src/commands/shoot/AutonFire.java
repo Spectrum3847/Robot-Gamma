@@ -1,30 +1,25 @@
 package commands.shoot;
 
-import commands.CommandBase;
-import framework.Init;
+import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  * @author matthew
  */
-public class AutonFire extends CommandBase {
+public class AutonFire extends CommandGroup {
 
     protected void initialize() {
+        addSequential(new Flick());
     }
 
     protected void execute() {
-        shooter.setFrontMotorDashboard();
-        shooter.setRearMotorDashboard();
-        Init.flick.start();
     }
 
     protected boolean isFinished() {
-        return Init.flick.isCanceled();
+        return false;
     }
 
     protected void end() {
-        shooter.setFrontMotor(0);
-        shooter.setRearMotor(0);
     }
 
     protected void interrupted() {

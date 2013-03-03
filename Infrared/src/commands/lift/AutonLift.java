@@ -2,7 +2,6 @@ package commands.lift;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import framework.OI;
 
 /**
  *

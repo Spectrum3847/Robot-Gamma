@@ -1,9 +1,11 @@
 package commands.autonomousgroup;
 
-import commands.CommandBase;
 import commands.driving.AutonDriveCollect;
 import commands.lift.AutonLift;
 import commands.shoot.AutonFire;
+import commands.shoot.AutonSetShooter;
+import commands.shoot.AutonTilt;
+import commands.shoot.AutonTiltHold;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -12,13 +14,22 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  *
  * @author matthew
  */
-public class Auton extends CommandGroup
+public class AutonFourDiscs extends CommandGroup
 {
-    public Auton() {
+    public AutonFourDiscs() {
         super();
-        requires(CommandBase.drivebase);
         addSequential(new AutonDriveCollect(), SmartDashboard.getNumber("Auton Collect Drive Time"));
+        addParallel(new AutonSetShooter());
+        addSequential(new WaitCommand(.3));
         addSequential(new AutonLift(), SmartDashboard.getNumber("Auton Lift Time"));
+        addSequential(new AutonTilt(), SmartDashboard.getNumber("Auton Tilt Time"));
+        addParallel(new AutonTiltHold());
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
         addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
         addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
         addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));

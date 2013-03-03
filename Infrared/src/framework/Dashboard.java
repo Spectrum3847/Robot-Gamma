@@ -36,13 +36,17 @@ public class Dashboard {
                 SmartDashboard.putData(CommandBase.drivebase);
             }*/
             
-            SmartDashboard.putNumber("Auton Tilt Speed", 0.0);
-            SmartDashboard.putNumber("Lift Auton Speed", 0.0);
-            SmartDashboard.putNumber("DriveBase Auton Speed", 0.0);
+            SmartDashboard.putNumber("Auton Tilt Speed", 1.0);
+            SmartDashboard.putNumber("Auton Tilt Lock Speed", 0.4);
+            SmartDashboard.putNumber("Lift Auton Speed", 1.0);
+            SmartDashboard.putNumber("DriveBase Auton Speed", 0.5);
+            SmartDashboard.putNumber("Auton Front Shooter Speed", 0.7);
+            SmartDashboard.putNumber("Auton Rear Shooter Speed", 1.0);
             
-            SmartDashboard.putNumber("Auton Collect Drive Time", 0.0);
-            SmartDashboard.putNumber("Auton Lift Time", 0.0);
-            SmartDashboard.putNumber("Auton Fire Time", 0.0);
+            SmartDashboard.putNumber("Auton Collect Drive Time", 1.0);
+            SmartDashboard.putNumber("Auton Lift Time", 7.0);
+            SmartDashboard.putNumber("Auton Tilt Time", 0.4);
+            SmartDashboard.putNumber("Auton Fire Time", 0.5);
         }
     }
 

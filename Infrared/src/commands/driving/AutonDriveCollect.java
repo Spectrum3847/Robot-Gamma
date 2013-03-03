@@ -15,6 +15,9 @@ public class AutonDriveCollect extends CommandBase {
     protected void execute() {
         drivebase.setRight(SmartDashboard.getNumber("DriveBase Auton Speed"));
         drivebase.setLeft(SmartDashboard.getNumber("DriveBase Auton Speed"));
+        
+        shooter.setFrontMotor(0.5);
+        shooter.setRearMotor(1.0);
     }
 
     protected boolean isFinished() {
