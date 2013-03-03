@@ -1,32 +1,29 @@
-
-package commands.shoot;
+package commands.lift;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.OI;
 
 /**
  *
  * @author matthew
  */
-public class AutonTilt extends CommandBase{
-
+public class AutonLift extends CommandBase {
     protected void initialize() {
-        this.setTimeout(SmartDashboard.getNumber("Auton Tilt Time", 0.0));
     }
 
     protected void execute() {
-        shooterTilt.setSpeed(-1 * SmartDashboard.getNumber("Auton Tilt Speed"));
+        lift.setSpeed(SmartDashboard.getNumber("Lift Auton Speed"));
     }
 
     protected boolean isFinished() {
-        return isTimedOut();
+        return false;
     }
 
     protected void end() {
-        //shooterTilt.setSpeed(SmartDashboard.getNumber("Auton Tilt Lock Speed"));
     }
 
     protected void interrupted() {
     }
-
+    
 }

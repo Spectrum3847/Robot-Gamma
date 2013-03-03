@@ -7,20 +7,24 @@ import framework.Init;
  *
  * @author matthew
  */
-public class AutonFireDisc extends CommandBase {
+public class AutonFire extends CommandBase {
 
     protected void initialize() {
-        Init.flick.start();
     }
 
     protected void execute() {
+        shooter.setFrontMotorDashboard();
+        shooter.setRearMotorDashboard();
+        Init.flick.start();
     }
 
     protected boolean isFinished() {
-        return !Init.flick.isRunning();
+        return Init.flick.isCanceled();
     }
 
     protected void end() {
+        shooter.setFrontMotor(0);
+        shooter.setRearMotor(0);
     }
 
     protected void interrupted() {

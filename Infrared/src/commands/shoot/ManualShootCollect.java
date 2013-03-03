@@ -24,7 +24,7 @@ public class ManualShootCollect extends CommandBase {
     protected void execute() {
         double trigger_val = -OI.gamepad_aux.getTriggers();// + -abs(OI.gamepad.getTriggers());
         
-        shooter.setFrontMotor(trigger_val/(trigger_val<0?2:1));                             //If we are collecting divide the front wheel by 2
+        shooter.setFrontMotor(trigger_val/(trigger_val<0?4:1));                             //If we are collecting divide the front wheel by 4
         shooter.setRearMotor(trigger_val);
         
         SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());

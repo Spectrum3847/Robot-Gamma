@@ -1,23 +1,23 @@
-package commands.shoot;
+package commands.lift;
 
 import commands.CommandBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.OI;
 
 /**
  *
  * @author matthew
  */
-public class AutonStopShooter extends CommandBase {
-
+public class AutonLift extends CommandBase {
     protected void initialize() {
-        shooter.setFrontMotor(0.0);                             //Set shooter speed
-        shooter.setRearMotor(0.0);
     }
 
     protected void execute() {
+        lift.setSpeed(SmartDashboard.getNumber("Lift Auton Speed"));
     }
 
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     protected void end() {
@@ -25,5 +25,5 @@ public class AutonStopShooter extends CommandBase {
 
     protected void interrupted() {
     }
-
+    
 }

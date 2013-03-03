@@ -1,7 +1,7 @@
 package framework;
 
 import commands.CommandBase;
-import commands.autonomousgroup.AutonFourDisc;
+import commands.autonomousgroup.Auton;
 import commands.driving.AutonomousDistanceLeft;
 import commands.driving.AutonomousDistanceRight;
 import commands.driving.DriveSelector;
@@ -39,9 +39,7 @@ public class Init {
     public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
     public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
     
-    public static Command autonfourdisc = new AutonFourDisc();
-    
-    //public static CommandGroup auton = new AutonFourDisc();
+    //public static CommandGroup auton = new Auton();
 
     public static void init() {
         CommandBase.init();

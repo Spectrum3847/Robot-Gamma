@@ -18,7 +18,7 @@ public class ManualShooterTilt extends CommandBase {
     }
 
     protected void execute() {
-        shooterTilt.setSpeed(Utilities.deadBand(OI.gamepad_aux.getRightY(), 0.14));
+        shooterTilt.setSpeed(Utilities.deadBand(OI.gamepad_aux.getRightY(), 0.1));
         SmartDashboard.putNumber("shooterTilt", shooterTilt.getSpeed());
     }
 
