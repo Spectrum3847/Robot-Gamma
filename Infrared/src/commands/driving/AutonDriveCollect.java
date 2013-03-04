@@ -8,13 +8,21 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author matthew
  */
 public class AutonDriveCollect extends CommandBase {
+    private String promt = "DriveBase Auton Speed";
+    
+    public AutonDriveCollect() {
+    }
+    
+    public AutonDriveCollect(String s) {
+        promt = s;
+    }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        drivebase.setRight(SmartDashboard.getNumber("DriveBase Auton Speed"));
-        drivebase.setLeft(SmartDashboard.getNumber("DriveBase Auton Speed"));
+        drivebase.setRight(SmartDashboard.getNumber(promt));
+        drivebase.setLeft(SmartDashboard.getNumber(promt));
         
         shooter.setFrontMotor(0.5);
         shooter.setRearMotor(1.0);
@@ -25,6 +33,11 @@ public class AutonDriveCollect extends CommandBase {
     }
 
     protected void end() {
+        drivebase.setRight(SmartDashboard.getNumber(promt));
+        drivebase.setLeft(SmartDashboard.getNumber(promt));
+        
+        shooter.setFrontMotor(0.5);
+        shooter.setRearMotor(1.0);
     }
 
     protected void interrupted() {

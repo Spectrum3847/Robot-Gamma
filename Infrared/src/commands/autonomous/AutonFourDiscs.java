@@ -1,4 +1,4 @@
-package commands.autonomousgroup;
+package commands.autonomous;
 
 import commands.driving.AutonDriveCollect;
 import commands.lift.AutonLift;
@@ -16,9 +16,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutonFourDiscs extends CommandGroup
 {
-    public AutonFourDiscs() {
+    public AutonFourDiscs(boolean calledseven) {
         super();
-        addSequential(new AutonDriveCollect(), SmartDashboard.getNumber("Auton Collect Drive Time"));
+        addSequential(new AutonDriveCollect(), SmartDashboard.getNumber("Auton Collect Drive Time" + (calledseven?" 7 Disc":"")));
         addParallel(new AutonSetShooter());
         addSequential(new WaitCommand(.3));
         addSequential(new AutonLift(), SmartDashboard.getNumber("Auton Lift Time"));
@@ -45,8 +45,7 @@ public class AutonFourDiscs extends CommandGroup
     
     // Called at end of Command
     public void end() {
-        //Init.lautodrive.getController().reset();
-        //Init.rautodrive.getController().reset();
+        this.cancel();
     }
     
     // Call end() if interrupted

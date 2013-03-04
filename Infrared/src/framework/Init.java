@@ -1,9 +1,7 @@
 package framework;
 
 import commands.CommandBase;
-import commands.autonomousgroup.AutonFourDiscs;
-import commands.driving.AutonomousDistanceLeft;
-import commands.driving.AutonomousDistanceRight;
+import commands.autonomous.AutonFourDiscs;
 import commands.driving.DriveSelector;
 import commands.lift.LiftControl;
 import commands.shoot.Flick;
@@ -36,10 +34,10 @@ public class Init {
     
     public static Command flick = new Flick();
     
-    public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
-    public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
+    //public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
+    //public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
     
-    //public static CommandGroup auton = new AutonFourDiscs();
+    public static CommandGroup auton = new AutonFourDiscs(false);
 
     public static void init() {
         CommandBase.init();

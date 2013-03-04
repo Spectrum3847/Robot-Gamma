@@ -12,7 +12,7 @@ public class Autonomous {
     public static Victor vic_5 = new Victor(HW.MIDDLE_LDRIVE_MOTOR);
     public static void init()
     {
-        //Init.auton.start();
+        Init.autonFourDiscs.start();
     }
 
     public static void periodic()
