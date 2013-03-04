@@ -36,6 +36,7 @@ public class Init {
     
     public static Command flick = new Flick();
     
+    public static Command autonFourDiscs = new AutonFourDiscs();
     public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
     public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
     

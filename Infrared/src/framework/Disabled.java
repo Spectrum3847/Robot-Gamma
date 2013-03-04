@@ -6,12 +6,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author matthew
  */
 public class Disabled {
-        public static void init()
-        {
-                
-        }
+    
         static int t = 0;
         static boolean b = true;
+        
+        public static void init()
+        {
+            Init.autonFourDiscs.cancel();
+        }
         public static void periodic()
         {
             //Flash a light on the dashboard while disabled, know that the dashboard is refreshing.
