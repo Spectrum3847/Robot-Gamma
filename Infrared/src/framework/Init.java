@@ -33,11 +33,8 @@ public class Init {
     public static Command manualshootcollect = new ManualShootCollect();
     
     public static Command flick = new Flick();
-    
-    //public static AutonomousDistanceLeft lautodrive = new commands.driving.AutonomousDistanceLeft(0, 0, 0);
-    //public static AutonomousDistanceRight rautodrive = new commands.driving.AutonomousDistanceRight(0, 0, 0);
-    
-    public static CommandGroup auton = new AutonFourDiscs(false);
+
+    public static Command autonFourDiscs = new AutonFourDiscs(false);
 
     public static void init() {
         CommandBase.init();
