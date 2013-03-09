@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.Joystick;
 4 - RightX
 5 - RightY
 6 - DPad Left/Right
- * @author David
+ * @author David, Matthew, JAG
  */
 public class Gamepad {
     

@@ -49,9 +49,9 @@ public class DriveBase extends PIDSubsystem {
          left_encoder.setDistancePerPulse(HW.DRIVEBASE_PULSE);
          right_encoder = new Encoder(HW.RDRIVE_ENCODER_A,HW.RDRIVE_ENCODER_B,true,CounterBase.EncodingType.k1X);
          right_encoder.setDistancePerPulse(HW.DRIVEBASE_PULSE);
-         //x_gyro_raw = new AnalogChannel(HW.X_GYRO_CHANNEL);
-         //x_gyro_raw.setAverageBits(2); //Get 4 samples of gyro data and average them for the raw output
-         //x_gyro = new Gyro(x_gyro_raw);
+         x_gyro_raw = new AnalogChannel(HW.GYRO_CHANNEL);
+         x_gyro_raw.setAverageBits(2); //Get 4 samples of gyro data and average them for the raw output
+         x_gyro = new Gyro(x_gyro_raw);
          this.getPIDController().setOutputRange(-1, 1);
          this.getPIDController().setInputRange(-360, 360);
          this.getPIDController().setAbsoluteTolerance(tolerance);

@@ -1,20 +1,20 @@
-package commands.test;
+package commands.lift;
 
 import commands.CommandBase;
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 
 /**
  *
  * @author matthew
  */
-public class TestClass extends CommandBase {
-
+public class AutonLiftLower extends CommandBase {
+    
     protected void initialize() {
     }
 
     protected void execute() {
-        SmartDashboard.putNumber("Alive", Timer.getFPGATimestamp());
+        lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_LOWER_SPEED_KEY));
     }
 
     protected boolean isFinished() {
@@ -22,10 +22,11 @@ public class TestClass extends CommandBase {
     }
 
     protected void end() {
-        SmartDashboard.putNumber("Alive", 0);
+        lift.setSpeed(0);
     }
 
     protected void interrupted() {
         end();
     }
+    
 }

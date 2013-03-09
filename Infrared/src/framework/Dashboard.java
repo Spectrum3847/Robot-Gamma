@@ -16,6 +16,22 @@ public class Dashboard {
     static double shortOldTime = 0.0;
     static final double LONG_DELAY = 2;
     static double longOldTime = 0.0;
+    
+    public static String TILT_SPEED_KEY = "Auton Tilt Speed";
+    public static String TILT_LOCK_SPEED_KEY = "Auton Tilt Lock Speed";
+    public static String LIFT_SPEED_KEY = "Lift Auton Speed";
+    public static String LIFT_LOWER_SPEED_KEY = "Lift Auton Lower Speed";
+    public static String DRIVEBASE_SPEED_KEY = "DriveBase Auton Speed";
+    public static String FRONT_SHOOTER_SPEED_KEY = "Auton Front Shooter Speed";
+    public static String REAR_SHOOTER_SPEED_KEY = "Auton Rear Shooter Speed";
+    
+    public static String COLLECT_DRIVE_TIME_KEY = "Auton Collect Drive Time";
+    public static String LIFT_TIME_KEY = "Auton Lift Time";
+    public static String TILT_TIME_KEY = "Auton Tilt Time";
+    public static String FIRE_TIME_KEY = "Auton Fire Time";
+    
+    public static String AUTON_ENABLED_KEY = "Auton Enabled";
+    public static String AUTON_FOUR_SEVEN_KEY = "Four Disc Auton/Seven Disc Auton (T/F)";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
@@ -32,23 +48,23 @@ public class Dashboard {
             SmartDashboard.putNumber("CheesySensetivity", 1.5);
             SmartDashboard.putNumber("FrontMotorInput", 0);
             SmartDashboard.putNumber("RearMotorInput", 0);
-            /*if (TURN_PID_TUNING) {
-                SmartDashboard.putData(CommandBase.drivebase);
-            }*/
             
-            SmartDashboard.putNumber("Auton Tilt Speed", 1.0);
-            SmartDashboard.putNumber("Auton Tilt Lock Speed", 0.4);
-            SmartDashboard.putNumber("Lift Auton Speed", 1.0);
-            SmartDashboard.putNumber("Lift Auton Lower Speed", 1.0);
-            SmartDashboard.putNumber("DriveBase Auton Speed", 0.5);
-            SmartDashboard.putNumber("Auton Front Shooter Speed", 0.7);
-            SmartDashboard.putNumber("Auton Rear Shooter Speed", 1.0);
+            SmartDashboard.putBoolean(AUTON_ENABLED_KEY, true);
+            SmartDashboard.putBoolean(AUTON_FOUR_SEVEN_KEY, true);
             
-            SmartDashboard.putNumber("Auton Collect Drive Time", 1.0);
-            SmartDashboard.putNumber("Auton Collect Drive Time 7 Disc", 1.0);
-            SmartDashboard.putNumber("Auton Lift Time", 7.0);
-            SmartDashboard.putNumber("Auton Tilt Time", 0.4);
-            SmartDashboard.putNumber("Auton Fire Time", 0.5);
+            SmartDashboard.putNumber(TILT_SPEED_KEY, 1.0);
+            SmartDashboard.putNumber(TILT_LOCK_SPEED_KEY, 0.3);
+            SmartDashboard.putNumber(LIFT_SPEED_KEY, 1.0);
+            SmartDashboard.putNumber(LIFT_LOWER_SPEED_KEY, 1.0);
+            SmartDashboard.putNumber(DRIVEBASE_SPEED_KEY, 0.5);
+            SmartDashboard.putNumber(FRONT_SHOOTER_SPEED_KEY, 1.0);
+            SmartDashboard.putNumber(REAR_SHOOTER_SPEED_KEY, 0.7);
+
+            SmartDashboard.putNumber(COLLECT_DRIVE_TIME_KEY, 2.5);
+            SmartDashboard.putNumber(COLLECT_DRIVE_TIME_KEY + " 7 Disc", 2.5);
+            SmartDashboard.putNumber(LIFT_TIME_KEY, 3.5);
+            SmartDashboard.putNumber(TILT_TIME_KEY, 0.4);
+            SmartDashboard.putNumber(FIRE_TIME_KEY, 0.5);
         }
     }
 

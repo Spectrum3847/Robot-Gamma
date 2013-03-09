@@ -2,26 +2,19 @@ package commands.lift;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 
 /**
  *
  * @author matthew
  */
 public class AutonLift extends CommandBase {
-    private String promt = "Lift Auton Speed";
-    
-    public AutonLift() {
-    }
-    
-    public AutonLift(String s) {
-        promt = s;
-    }
     
     protected void initialize() {
     }
 
     protected void execute() {
-        lift.setSpeed(SmartDashboard.getNumber(promt));
+        lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_SPEED_KEY));
     }
 
     protected boolean isFinished() {
@@ -29,9 +22,11 @@ public class AutonLift extends CommandBase {
     }
 
     protected void end() {
+        lift.setSpeed(0.2);
     }
 
     protected void interrupted() {
+        end();
     }
     
 }

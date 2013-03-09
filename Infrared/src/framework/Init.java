@@ -2,6 +2,7 @@ package framework;
 
 import commands.CommandBase;
 import commands.autonomous.AutonFourDiscs;
+import commands.autonomous.AutonSevenDiscs;
 import commands.driving.DriveSelector;
 import commands.lift.LiftControl;
 import commands.shoot.Flick;
@@ -34,7 +35,7 @@ public class Init {
     
     public static Command flick = new Flick();
 
-    public static Command autonFourDiscs = new AutonFourDiscs(false);
+    public static Command auton;
 
     public static void init() {
         CommandBase.init();

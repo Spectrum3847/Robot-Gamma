@@ -9,6 +9,7 @@ import commands.shoot.AutonTiltHold;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 
 /**
  *
@@ -18,21 +19,21 @@ public class AutonFourDiscs extends CommandGroup
 {
     public AutonFourDiscs(boolean calledseven) {
         super();
-        addSequential(new AutonDriveCollect(), SmartDashboard.getNumber("Auton Collect Drive Time" + (calledseven?" 7 Disc":"")));
+        addSequential(new AutonDriveCollect(), SmartDashboard.getNumber(Dashboard.COLLECT_DRIVE_TIME_KEY + (calledseven?" 7 Disc":"")));
         addParallel(new AutonSetShooter());
-        addSequential(new WaitCommand(.3));
-        addSequential(new AutonLift(), SmartDashboard.getNumber("Auton Lift Time"));
-        addSequential(new AutonTilt(), SmartDashboard.getNumber("Auton Tilt Time"));
+        addSequential(new AutonLift(), SmartDashboard.getNumber(Dashboard.LIFT_TIME_KEY));
+        addSequential(new AutonTilt(), SmartDashboard.getNumber(Dashboard.TILT_TIME_KEY));
         addParallel(new AutonTiltHold());
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
-        addSequential(new AutonFire(), SmartDashboard.getNumber("Auton Fire Time"));
+        addSequential(new WaitCommand(1));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
     }
     
     // Called just before this Command runs the first time

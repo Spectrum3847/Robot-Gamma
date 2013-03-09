@@ -19,7 +19,7 @@ public class DashboardShoot extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setFrontMotorDashboard();                             //If we are collecting divide the front wheel by 4
+        shooter.setFrontMotorDashboard();  //If we are collecting divide the front wheel by 4
         shooter.setRearMotorDashboard();
         SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());
         SmartDashboard.putNumber("ShooterRear", shooter.getRearMotor());

@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class AutonFire extends CommandGroup {
 
-    protected void initialize() {
+    public AutonFire() {
         addSequential(new Flick());
+    }
+    protected void initialize() {
     }
 
     protected void execute() {

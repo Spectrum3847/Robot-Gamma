@@ -12,8 +12,9 @@ public class Disabled {
         
         public static void init()
         {
-            Init.autonFourDiscs.cancel();
+            Autonomous.cancel();
         }
+        
         public static void periodic()
         {
             //Flash a light on the dashboard while disabled, know that the dashboard is refreshing.
@@ -28,6 +29,5 @@ public class Disabled {
         
         public static void continuous()
         {
-                
         }
 }

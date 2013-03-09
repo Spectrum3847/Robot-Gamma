@@ -96,4 +96,5 @@ public class HW {
     public static final double POT_MIN_OUTPUT = -0.4;
     public static final double POT_MAX_OUTPUT = 0.6;
     public static final double AS5415_MAX_VOLTAGE = 3.3;
+    public static final int GYRO_CHANNEL = 1;
 }

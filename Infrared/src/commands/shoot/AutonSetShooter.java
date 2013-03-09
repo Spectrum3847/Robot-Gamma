@@ -2,6 +2,7 @@ package commands.shoot;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 
 /**
  *
@@ -17,10 +18,8 @@ public class AutonSetShooter extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setFrontMotor(SmartDashboard.getNumber("Auton Front Shooter Speed"));                             
-        shooter.setRearMotor(SmartDashboard.getNumber("Auton Rear Shooter Speed"));   
-        SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());
-        SmartDashboard.putNumber("ShooterRear", shooter.getRearMotor());
+        shooter.setFrontMotor(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_SPEED_KEY));                             
+        shooter.setRearMotor(SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_SPEED_KEY));
     }
 
     protected boolean isFinished() {

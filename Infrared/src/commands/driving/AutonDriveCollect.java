@@ -2,13 +2,14 @@ package commands.driving;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 
 /**
  *
  * @author matthew
  */
 public class AutonDriveCollect extends CommandBase {
-    private String promt = "DriveBase Auton Speed";
+    private String promt = Dashboard.DRIVEBASE_SPEED_KEY;
     
     public AutonDriveCollect() {
     }
@@ -18,14 +19,13 @@ public class AutonDriveCollect extends CommandBase {
     }
 
     protected void initialize() {
+        drivebase.setCheesyDrive(SmartDashboard.getNumber(promt), 0, false);
+        
+        shooter.setFrontMotor(-0.75);
+        shooter.setRearMotor(-1.0);
     }
 
     protected void execute() {
-        drivebase.setRight(SmartDashboard.getNumber(promt));
-        drivebase.setLeft(SmartDashboard.getNumber(promt));
-        
-        shooter.setFrontMotor(0.5);
-        shooter.setRearMotor(1.0);
     }
 
     protected boolean isFinished() {
@@ -33,14 +33,13 @@ public class AutonDriveCollect extends CommandBase {
     }
 
     protected void end() {
-        drivebase.setRight(SmartDashboard.getNumber(promt));
-        drivebase.setLeft(SmartDashboard.getNumber(promt));
+        drivebase.setCheesyDrive(SmartDashboard.getNumber(promt), 0, false);
         
-        shooter.setFrontMotor(0.5);
-        shooter.setRearMotor(1.0);
+        shooter.setFrontMotor(0);
+        shooter.setRearMotor(0);
     }
 
     protected void interrupted() {
-    }
-    
+        end();
+    }   
 }
