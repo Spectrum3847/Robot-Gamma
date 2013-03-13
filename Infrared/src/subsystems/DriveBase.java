@@ -252,7 +252,7 @@ public class DriveBase extends PIDSubsystem {
      */
     
     public Victor getVictor(int id){
-        return vic_arr[id-1];
+        return vic_arr[id];
     }
     
     public Victor[] getVicArr(){

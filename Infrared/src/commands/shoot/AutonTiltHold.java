@@ -13,7 +13,7 @@ public class AutonTiltHold extends CommandBase {
     }
 
     protected void execute() {
-        shooterTilt.setSpeed(-SmartDashboard.getNumber(Dashboard.TILT_LOCK_SPEED_KEY));
+        shooterTilt.motor.set(-0.225);
     }
 
     protected boolean isFinished() {

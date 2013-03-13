@@ -19,6 +19,7 @@ public class AutonFourDiscs extends CommandGroup
 {
     public AutonFourDiscs(boolean calledseven) {
         super();
+        /*
         addSequential(new AutonDriveCollect(), SmartDashboard.getNumber(Dashboard.COLLECT_DRIVE_TIME_KEY + (calledseven?" 7 Disc":"")));
         addParallel(new AutonSetShooter());
         addSequential(new AutonLift(), SmartDashboard.getNumber(Dashboard.LIFT_TIME_KEY));
@@ -34,6 +35,22 @@ public class AutonFourDiscs extends CommandGroup
         addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
         addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
         addSequential(new AutonFire(), SmartDashboard.getNumber(Dashboard.FIRE_TIME_KEY));
+        */
+        
+        addSequential(new AutonDriveCollect(), 4);
+        addParallel(new AutonSetShooter());
+        addSequential(new AutonLift(), 4);
+        addSequential(new AutonTilt(), 0.750);
+        addParallel(new AutonTiltHold());
+        addSequential(new WaitCommand(1));
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
+        addSequential(new AutonFire(), 1);
     }
     
     // Called just before this Command runs the first time

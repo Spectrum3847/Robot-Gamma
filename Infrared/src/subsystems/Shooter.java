@@ -12,8 +12,7 @@ import framework.Init;
 public class Shooter extends Subsystem {
 
     
-    private Jaguar motor_f;
-    private Victor motor_r;
+    public Jaguar motor_f, motor_r;
     private OpticalEncoder encoder;
     public DigitalInput encoder_in;
     private final Jaguar flickmotor;
@@ -26,7 +25,7 @@ public class Shooter extends Subsystem {
         //encoder_in = new DigitalInput(HW.SHOOTER_ENCODER);
         
         motor_f = new Jaguar(HW.FRONT_SHOOTER_MOTOR);
-        motor_r = new Victor(HW.REAR_SHOOTER_MOTOR);
+        motor_r = new Jaguar(HW.REAR_SHOOTER_MOTOR);
         flickmotor = new Jaguar(HW.FLICK_SHOOTER_MOTOR);
         
         encoder.start();

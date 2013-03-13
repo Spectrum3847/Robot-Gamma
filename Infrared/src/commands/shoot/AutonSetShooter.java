@@ -18,8 +18,10 @@ public class AutonSetShooter extends CommandBase {
     }
 
     protected void execute() {
-        shooter.setFrontMotor(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_SPEED_KEY));                             
-        shooter.setRearMotor(SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_SPEED_KEY));
+        //shooter.setFrontMotor(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_SPEED_KEY));                             
+        //shooter.setRearMotor(SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_SPEED_KEY));
+        shooter.setFrontMotor(0.75);                             
+        shooter.setRearMotor(1);
     }
 
     protected boolean isFinished() {

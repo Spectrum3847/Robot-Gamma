@@ -12,7 +12,7 @@ import framework.Init;
  */
 public class ShooterTilt extends Subsystem{
 
-    private Jaguar motor;
+    public Jaguar motor;
    
     // Initialize your subsystem here
     public ShooterTilt() {

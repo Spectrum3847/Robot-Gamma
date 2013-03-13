@@ -9,11 +9,17 @@ import framework.Dashboard;
  * @author matthew
  */
 public class AutonTilt extends CommandBase {
+    
+    public AutonTilt() {
+        requires(shooterTilt);
+    }
+    
     protected void initialize() {
     }
 
     protected void execute() {
-        shooterTilt.setSpeed(-SmartDashboard.getNumber(Dashboard.TILT_SPEED_KEY));
+        //shooterTilt.setSpeed(-SmartDashboard.getNumber(Dashboard.TILT_SPEED_KEY));
+        shooterTilt.motor.set(-0.55);
     }
 
     protected boolean isFinished() {

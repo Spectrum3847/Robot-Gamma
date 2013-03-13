@@ -14,7 +14,8 @@ public class AutonLift extends CommandBase {
     }
 
     protected void execute() {
-        lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_SPEED_KEY));
+        //lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_SPEED_KEY));
+        lift.setSpeed(1);
     }
 
     protected boolean isFinished() {
