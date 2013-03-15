@@ -32,6 +32,12 @@ public class Dashboard {
     
     public static String AUTON_ENABLED_KEY = "Auton Enabled";
     public static String AUTON_FOUR_SEVEN_KEY = "Four Disc Auton/Seven Disc Auton (T/F)";
+    
+    public static String FRONT_SHOOTER_RPM_KEY = "INSERT FRONT SHOOTER MOTOR RPM HERE";
+    public static String REAR_SHOOTER_RPM_KEY = "INSERT REAR SHOOTER MOTOR RPM HERE";
+    
+    public static String FRONT_COLLECTER_RPM_KEY = "INSERT FRONT COLLECTER MOTOR RPM HERE";
+    public static String REAR_COLLECTER_RPM_KEY = "INSERT REAR COLLECTER MOTOR RPM HERE";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
@@ -65,6 +71,12 @@ public class Dashboard {
             SmartDashboard.putNumber(LIFT_TIME_KEY, 3.5);
             SmartDashboard.putNumber(TILT_TIME_KEY, 0.4);
             SmartDashboard.putNumber(FIRE_TIME_KEY, 0.5);
+            
+            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 0);
+            SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 0);
+                    
+            SmartDashboard.putNumber(FRONT_COLLECTER_RPM_KEY, 0);
+            SmartDashboard.putNumber(REAR_COLLECTER_RPM_KEY, 0);
         }
     }
 

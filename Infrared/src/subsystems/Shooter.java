@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 import framework.HW;
 import framework.Init;
 
@@ -13,22 +14,20 @@ public class Shooter extends Subsystem {
 
     
     public Jaguar motor_f, motor_r;
-    private OpticalEncoder encoder;
+    private OpticalEncoder encoder_f;
+    private OpticalEncoder encoder_r;
     public DigitalInput encoder_in;
-    private final Jaguar flickmotor;
-   
+    
     // Initialize your subsystem here
     public Shooter() {
         super("Shooter");
         
-        encoder = new OpticalEncoder(HW.SHOOTER_ENCODER);
-        //encoder_in = new DigitalInput(HW.SHOOTER_ENCODER);
+        encoder_f = new OpticalEncoder(HW.SHOOTER_FRONT_ENCODER);
+        encoder_r = new OpticalEncoder(HW.SHOOTER_REAR_ENCODER);
+        //encoder_in = new DigitalInput(HW.SHOOTER_REAR_ENCODER);
         
         motor_f = new Jaguar(HW.FRONT_SHOOTER_MOTOR);
         motor_r = new Jaguar(HW.REAR_SHOOTER_MOTOR);
-        flickmotor = new Jaguar(HW.FLICK_SHOOTER_MOTOR);
-        
-        encoder.start();
     }
     
     
@@ -58,6 +57,16 @@ public class Shooter extends Subsystem {
         setRearMotor(SmartDashboard.getNumber("RearMotorInput"));
     }
     
+    public void setBangBang(double setpoint_f, double setpoint_r, boolean collect){
+        if(encoder_f.getRate() > setpoint_f)
+            setShooter(0.0);
+        else setShooter(collect?-1.0:1.0);
+        
+        if(encoder_r.getRate() > setpoint_r)
+            setShooter(0.0);
+        else setShooter(collect?-1.0:1.0);
+    }
+    
     public double getFrontMotor (){
         return motor_f.get();
     }
@@ -65,20 +74,26 @@ public class Shooter extends Subsystem {
     public double getRearMotor (){
         return motor_r.get();
     }
-    public void setFlick(double speed) {
-        flickmotor.set(speed);
+    
+    public double FrontMotorRate() {
+        return encoder_f.getRate();
     }
     
-    public double getRate() {
-        return encoder.getRate();
+    public double RearMotorRate() {
+        return encoder_r.getRate();
     }
     
-    public void resetEncoder() {
-        encoder.reset();
+    public void resetEncoders() {
+        encoder_f.reset();
+        encoder_r.reset();
     }
     
-    public OpticalEncoder getEncoder() {
-        return encoder;
+    public OpticalEncoder getFrontEncoder() {
+        return encoder_f;
+    }
+    
+    public OpticalEncoder getRearEncoder() {
+        return encoder_r;
     }
     
     public boolean getInput() {

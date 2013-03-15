@@ -16,6 +16,7 @@ public abstract class CommandBase extends Command {
     public static Shooter shooter = new Shooter();
     public static ShooterTilt shooterTilt = new ShooterTilt();
     public static Lift lift = new Lift();
+    public static Flicker flicker = new Flicker();
     
     // Create a single static instance of all of your subsystems
 

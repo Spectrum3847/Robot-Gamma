@@ -11,12 +11,13 @@ public class Flick extends CommandBase {
     Timer time;
 
     protected void initialize() {
+        //requires(flicker);
         time  = new Timer();
         time.start();
     }
 
     protected void execute() {
-        shooter.setFlick(time.get()<0.25?0.75:-0.6);
+        flicker.setFlick(time.get()<0.25?0.75:-0.6);
     }
 
     protected boolean isFinished() {
@@ -25,12 +26,14 @@ public class Flick extends CommandBase {
 
     protected void end() {
         time.stop();
-        shooter.setFlick(0);
+        flicker.setFlick(0);
     }
-
+    
+    public synchronized boolean isInterruptable() {
+        return false;
+    }
     protected void interrupted() {
         time.stop();
-        shooter.setFlick(0);
+        flicker.setFlick(0);
     }
-
 }

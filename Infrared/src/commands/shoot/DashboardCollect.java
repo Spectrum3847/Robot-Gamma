@@ -8,9 +8,9 @@ import framework.Dashboard;
  *
  * @author matthew
  */
-public class DashboardShoot extends CommandBase {
+public class DashboardCollect extends CommandBase {
     
-    public DashboardShoot() {
+    public DashboardCollect() {
         requires(CommandBase.shooter);
     }
     
@@ -24,12 +24,11 @@ public class DashboardShoot extends CommandBase {
     }
 
     protected void execute() {
-        //shooter.setFrontMotorDashboard();  //If we are collecting divide the front wheel by 4
-        //shooter.setRearMotorDashboard();
-        shooter.setBangBang(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY), false);
+        shooter.setBangBang(SmartDashboard.getNumber(Dashboard.FRONT_COLLECTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_COLLECTER_RPM_KEY), true);
         
         SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
         SmartDashboard.putNumber("Rear RPM", shooter.getRearEncoder().getRate());
+        
     }
 
     protected boolean isFinished() {
@@ -41,7 +40,7 @@ public class DashboardShoot extends CommandBase {
         shooter.getFrontEncoder().stop();
         shooter.getRearEncoder().stop();
         
-        SmartDashboard.putBoolean("dashboardShootingCMD", false);
+        SmartDashboard.putBoolean("dashboardCollectingCMD", false);
     }
 
     protected void interrupted() {

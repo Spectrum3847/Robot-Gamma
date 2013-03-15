@@ -1,6 +1,7 @@
 package commands.shoot;
 
 import commands.CommandBase;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.OI;
 
@@ -19,6 +20,10 @@ public class ManualShootCollect extends CommandBase {
     }
     
     protected void initialize() {
+        shooter.resetEncoders();
+        
+        shooter.getFrontEncoder().start();
+        shooter.getRearEncoder().start();
     }
 
     protected void execute() {
@@ -30,15 +35,20 @@ public class ManualShootCollect extends CommandBase {
         SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());
         SmartDashboard.putNumber("ShooterRear", shooter.getRearMotor());
         
+        SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
+        SmartDashboard.putNumber("Rear RPM", shooter.getRearEncoder().getRate());
+        //SmartDashboard.putNumber("Front Shooter Motor Speed", shooter.getFrontEncoder().getRate());
+        //SmartDashboard.putNumber("Rear Shooter Motor Speed", shooter.getRearEncoder().getRate());
     }
-
+    
     protected boolean isFinished() {
         return false;
     }
 
     protected void end() {
         shooter.setShooter(0);
-        shooter.getEncoder().stop();
+        shooter.getFrontEncoder().stop();
+        shooter.getRearEncoder().stop();
     }
 
     protected void interrupted() {

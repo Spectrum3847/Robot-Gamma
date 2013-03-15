@@ -24,6 +24,7 @@ public class Init {
     public static Command cheesydrive = new commands.driving.CheesyDrive();
     public static Command shooter = new commands.shoot.ManualShootCollect();
     public static Command dashboardShoot = new commands.shoot.DashboardShoot();
+    public static Command dashboardCollect = new commands.shoot.DashboardCollect();
     public static Command test = new commands.test.TestClass();
     
     public static Command liftcontrol = new LiftControl();

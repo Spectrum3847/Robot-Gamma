@@ -63,7 +63,8 @@ public class HW {
     public static final int LDRIVE_ENCODER_B = 4;
     
     /**DIGITAL SENSOR ALLOCATIONS - SHOOTER SYSTEM **/
-    public static final int SHOOTER_ENCODER = 5;
+    public static final int SHOOTER_FRONT_ENCODER = 5;
+    public static final int SHOOTER_REAR_ENCODER = 6;
     
     /**JOYSTICKS/GAMEPAD ASSIGNMENTS**/
     public static final int usbPort_one = 1;
