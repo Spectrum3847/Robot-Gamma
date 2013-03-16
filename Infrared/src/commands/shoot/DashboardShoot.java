@@ -24,8 +24,6 @@ public class DashboardShoot extends CommandBase {
     }
 
     protected void execute() {
-        //shooter.setFrontMotorDashboard();  //If we are collecting divide the front wheel by 4
-        //shooter.setRearMotorDashboard();
         shooter.setBangBang(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY), false);
         
         SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());

@@ -1,10 +1,8 @@
 package framework;
 
 import commands.CommandBase;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -19,7 +17,7 @@ public class Teleop {
         Init.shooter.start();
         Init.liftcontrol.start();
         Init.test.start();
-        Init.manualshootertilt.start();
+        Init.dashboardShootCollect.start();
     }
 
     static int number = 0;

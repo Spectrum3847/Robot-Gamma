@@ -14,7 +14,6 @@ public abstract class CommandBase extends Command {
     public static OI oi;
     public static DriveBase drivebase = new DriveBase();
     public static Shooter shooter = new Shooter();
-    public static ShooterTilt shooterTilt = new ShooterTilt();
     public static Lift lift = new Lift();
     public static Flicker flicker = new Flicker();
     

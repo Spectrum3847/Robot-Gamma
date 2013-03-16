@@ -3,21 +3,40 @@ package subsystems;
 import driver.OpticalEncoder;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import framework.Dashboard;
 import framework.HW;
 import framework.Init;
 
 public class Shooter extends Subsystem {
 
+    public static double front_shooter = 5000;
+    public static double rear_shooter = 2000;
     
     public Jaguar motor_f, motor_r;
     private OpticalEncoder encoder_f;
     private OpticalEncoder encoder_r;
     public DigitalInput encoder_in;
     
+    public static void frontDec()
+    {
+        front_shooter -= 100;
+    }
+    
+    public static void rearDec()
+    {
+        rear_shooter -= 100;
+    }
+    
+    public static void frontInc()
+    {
+        front_shooter += 100;
+    }
+    
+    public static void rearInc()
+    {
+        rear_shooter += 100;
+    }
     // Initialize your subsystem here
     public Shooter() {
         super("Shooter");
@@ -59,12 +78,12 @@ public class Shooter extends Subsystem {
     
     public void setBangBang(double setpoint_f, double setpoint_r, boolean collect){
         if(encoder_f.getRate() > setpoint_f)
-            setShooter(0.0);
-        else setShooter(collect?-1.0:1.0);
+            setFrontMotor(0.0);
+        else setFrontMotor(collect?-1.0:1.0);
         
         if(encoder_r.getRate() > setpoint_r)
-            setShooter(0.0);
-        else setShooter(collect?-1.0:1.0);
+            setRearMotor(0.0);
+        else setRearMotor(collect?-1.0:1.0);
     }
     
     public double getFrontMotor (){
@@ -94,9 +113,5 @@ public class Shooter extends Subsystem {
     
     public OpticalEncoder getRearEncoder() {
         return encoder_r;
-    }
-    
-    public boolean getInput() {
-        return encoder_in.get();
     }
 }

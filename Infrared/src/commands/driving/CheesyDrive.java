@@ -48,9 +48,6 @@ public class CheesyDrive extends CommandBase {
         
         SmartDashboard.putNumber("Left Encoder", drivebase.getLeftEncoder().get());
         SmartDashboard.putNumber("Right Encoder", drivebase.getRightEncoder().get());
-        SmartDashboard.putNumber("Left Velocity", drivebase.getLeftVelocity());
-        SmartDashboard.putNumber("Right Velocity", drivebase.getRightVelocity());
-        
     }
 
     // Make this return true when this Command no longer needs to run execute()

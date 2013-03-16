@@ -1,7 +1,6 @@
 package framework;
 
 import commands.autonomous.AutonFourDiscs;
-import commands.autonomous.AutonSevenDiscs;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -29,7 +28,6 @@ public class Autonomous {
 
     public static void periodic()
     {
-        //System.out.println(Timer.getFPGATimestamp());
         Scheduler.getInstance().run();
         Dashboard.updateDashboard();
     }

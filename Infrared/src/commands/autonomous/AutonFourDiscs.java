@@ -4,8 +4,6 @@ import commands.driving.AutonDriveCollect;
 import commands.lift.AutonLift;
 import commands.shoot.AutonFire;
 import commands.shoot.AutonSetShooter;
-import commands.shoot.AutonTilt;
-import commands.shoot.AutonTiltHold;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -40,8 +38,6 @@ public class AutonFourDiscs extends CommandGroup
         addSequential(new AutonDriveCollect(), 4);
         addParallel(new AutonSetShooter());
         addSequential(new AutonLift(), 4);
-        addSequential(new AutonTilt(), 0.750);
-        addParallel(new AutonTiltHold());
         addSequential(new WaitCommand(1));
         addSequential(new AutonFire(), 1);
         addSequential(new AutonFire(), 1);

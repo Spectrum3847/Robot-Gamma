@@ -19,56 +19,48 @@ public class Dashboard {
     
     public static String TILT_SPEED_KEY = "Auton Tilt Speed";
     public static String TILT_LOCK_SPEED_KEY = "Auton Tilt Lock Speed";
-    public static String LIFT_SPEED_KEY = "Lift Auton Speed";
-    public static String LIFT_LOWER_SPEED_KEY = "Lift Auton Lower Speed";
     public static String DRIVEBASE_SPEED_KEY = "DriveBase Auton Speed";
     public static String FRONT_SHOOTER_SPEED_KEY = "Auton Front Shooter Speed";
     public static String REAR_SHOOTER_SPEED_KEY = "Auton Rear Shooter Speed";
     
     public static String COLLECT_DRIVE_TIME_KEY = "Auton Collect Drive Time";
-    public static String LIFT_TIME_KEY = "Auton Lift Time";
     public static String TILT_TIME_KEY = "Auton Tilt Time";
     public static String FIRE_TIME_KEY = "Auton Fire Time";
     
     public static String AUTON_ENABLED_KEY = "Auton Enabled";
-    public static String AUTON_FOUR_SEVEN_KEY = "Four Disc Auton/Seven Disc Auton (T/F)";
     
     public static String FRONT_SHOOTER_RPM_KEY = "INSERT FRONT SHOOTER MOTOR RPM HERE";
     public static String REAR_SHOOTER_RPM_KEY = "INSERT REAR SHOOTER MOTOR RPM HERE";
     
     public static String FRONT_COLLECTER_RPM_KEY = "INSERT FRONT COLLECTER MOTOR RPM HERE";
     public static String REAR_COLLECTER_RPM_KEY = "INSERT REAR COLLECTER MOTOR RPM HERE";
+    
+    public static String CHEESY_SENSITIVITY = "CheesySensetivity";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
             //Put things here that are updated by other commands or only need to be intialized
+            SmartDashboard.putBoolean("CheesyDriveCommand", Init.gamepaddrive.isRunning());
             SmartDashboard.putBoolean("HaloDriveCommand", Init.gamepaddrive.isRunning());
             SmartDashboard.putBoolean("LiftControlCommand", Init.liftcontrol.isRunning());
-            SmartDashboard.putBoolean("TiltCommand", Init.manualshootertilt.isRunning());
             SmartDashboard.putBoolean("ShootCollectCommand", Init.manualshootcollect.isRunning());
-            SmartDashboard.putBoolean("LockTiltCommand", Init.locktilt.isRunning());
-            SmartDashboard.putNumber("LockTilt", .3);
             
             //Intialize Single calls here, useful for PID data
             
-            SmartDashboard.putNumber("CheesySensetivity", 1.5);
+            SmartDashboard.putNumber(CHEESY_SENSITIVITY, 1.5);
             SmartDashboard.putNumber("FrontMotorInput", 0);
             SmartDashboard.putNumber("RearMotorInput", 0);
             
             SmartDashboard.putBoolean(AUTON_ENABLED_KEY, true);
-            SmartDashboard.putBoolean(AUTON_FOUR_SEVEN_KEY, true);
             
             SmartDashboard.putNumber(TILT_SPEED_KEY, 1.0);
             SmartDashboard.putNumber(TILT_LOCK_SPEED_KEY, 0.3);
-            SmartDashboard.putNumber(LIFT_SPEED_KEY, 1.0);
-            SmartDashboard.putNumber(LIFT_LOWER_SPEED_KEY, 1.0);
             SmartDashboard.putNumber(DRIVEBASE_SPEED_KEY, 0.5);
             SmartDashboard.putNumber(FRONT_SHOOTER_SPEED_KEY, 1.0);
             SmartDashboard.putNumber(REAR_SHOOTER_SPEED_KEY, 0.7);
 
             SmartDashboard.putNumber(COLLECT_DRIVE_TIME_KEY, 2.5);
             SmartDashboard.putNumber(COLLECT_DRIVE_TIME_KEY + " 7 Disc", 2.5);
-            SmartDashboard.putNumber(LIFT_TIME_KEY, 3.5);
             SmartDashboard.putNumber(TILT_TIME_KEY, 0.4);
             SmartDashboard.putNumber(FIRE_TIME_KEY, 0.5);
             

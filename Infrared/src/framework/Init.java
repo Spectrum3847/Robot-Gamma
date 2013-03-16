@@ -1,16 +1,11 @@
 package framework;
 
 import commands.CommandBase;
-import commands.autonomous.AutonFourDiscs;
-import commands.autonomous.AutonSevenDiscs;
 import commands.driving.DriveSelector;
 import commands.lift.LiftControl;
 import commands.shoot.Flick;
-import commands.shoot.LockTilt;
 import commands.shoot.ManualShootCollect;
-import commands.shoot.ManualShooterTilt;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
@@ -25,12 +20,10 @@ public class Init {
     public static Command shooter = new commands.shoot.ManualShootCollect();
     public static Command dashboardShoot = new commands.shoot.DashboardShoot();
     public static Command dashboardCollect = new commands.shoot.DashboardCollect();
+    public static Command dashboardShootCollect = new commands.shoot.DashboardShootCollect();
     public static Command test = new commands.test.TestClass();
     
     public static Command liftcontrol = new LiftControl();
-    public static Command locktilt = new LockTilt();
-    
-    public static Command manualshootertilt = new ManualShooterTilt();
     
     public static Command manualshootcollect = new ManualShootCollect();
     
