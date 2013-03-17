@@ -29,7 +29,7 @@ public class AutonSetShooter extends CommandBase {
     }
 
     protected void end() {
-        shooter.setShooter(0);
+        shooter.setShooter(0,0,0);
     }
 
     protected void interrupted() {

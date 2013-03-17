@@ -30,10 +30,16 @@ public class Dashboard {
     public static String AUTON_ENABLED_KEY = "Auton Enabled";
     
     public static String FRONT_SHOOTER_RPM_KEY = "INSERT FRONT SHOOTER MOTOR RPM HERE";
+    public static String MIDDLE_SHOOTER_RPM_KEY = "INSERT MIDDLE SHOOTER MOTOR RPM HERE";
     public static String REAR_SHOOTER_RPM_KEY = "INSERT REAR SHOOTER MOTOR RPM HERE";
     
     public static String FRONT_COLLECTER_RPM_KEY = "INSERT FRONT COLLECTER MOTOR RPM HERE";
+    public static String MIDDLE_COLLECTER_RPM_KEY = "INSERT MIDDLE SHOOTER MOTOR RPM HERE";
     public static String REAR_COLLECTER_RPM_KEY = "INSERT REAR COLLECTER MOTOR RPM HERE";
+    
+    public static String FRONT_MOTOR_ANALOG_SCALE_KEY = "FRONT MOTOR ANALOG SCALE VALUE";
+    public static String MIDDLE_MOTOR_ANALOG_SCALE_KEY = "MIDDLE MOTOR ANALOG SCALE VALUE";
+    public static String REAR_MOTOR_ANALOG_SCALE_KEY = "REAR MOTOR ANALOG SCALE VALUE";
     
     public static String CHEESY_SENSITIVITY = "CheesySensetivity";
 
@@ -43,7 +49,7 @@ public class Dashboard {
             SmartDashboard.putBoolean("CheesyDriveCommand", Init.gamepaddrive.isRunning());
             SmartDashboard.putBoolean("HaloDriveCommand", Init.gamepaddrive.isRunning());
             SmartDashboard.putBoolean("LiftControlCommand", Init.liftcontrol.isRunning());
-            SmartDashboard.putBoolean("ShootCollectCommand", Init.manualshootcollect.isRunning());
+            //SmartDashboard.putBoolean("ShootCollectCommand", Init.manualshootcollect.isRunning());
             
             //Intialize Single calls here, useful for PID data
             
@@ -65,10 +71,16 @@ public class Dashboard {
             SmartDashboard.putNumber(FIRE_TIME_KEY, 0.5);
             
             SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 0);
+            SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 0);
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 0);
                     
             SmartDashboard.putNumber(FRONT_COLLECTER_RPM_KEY, 0);
+            SmartDashboard.putNumber(MIDDLE_COLLECTER_RPM_KEY, 0);
             SmartDashboard.putNumber(REAR_COLLECTER_RPM_KEY, 0);
+            
+            SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY, 1);
+            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY, 1);
+            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY, 1);
         }
     }
 

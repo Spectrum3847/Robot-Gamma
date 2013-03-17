@@ -25,7 +25,7 @@ public class Init {
     
     public static Command liftcontrol = new LiftControl();
     
-    public static Command manualshootcollect = new ManualShootCollect();
+    //public static Command manualshootcollect = new ManualShootCollect();
     
     public static Command flick = new Flick();
 

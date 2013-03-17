@@ -20,7 +20,6 @@ public class DashboardCollect extends CommandBase {
         
         shooter.getFrontEncoder().start();
         shooter.getRearEncoder().start();
-
     }
 
     protected void execute() {
@@ -36,7 +35,7 @@ public class DashboardCollect extends CommandBase {
     }
 
     protected void end() {
-        shooter.setShooter(0);
+        shooter.setShooter(0,0,0);
         shooter.getFrontEncoder().stop();
         shooter.getRearEncoder().stop();
         

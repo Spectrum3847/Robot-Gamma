@@ -5,7 +5,11 @@ package framework;
  * @author JAG
  */
 public class Utilities {
-
+    
+    public static double abs(double a) {
+        return a<0?-a:a;
+    }
+    
     public static double deadBand(double input, double dead){
         double output = 0;
         if (input < 0 && input > -dead){    //Check if were in negative deadband

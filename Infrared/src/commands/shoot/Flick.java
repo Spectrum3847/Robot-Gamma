@@ -17,7 +17,7 @@ public class Flick extends CommandBase {
     }
 
     protected void execute() {
-        flicker.setFlick(time.get()<0.25?0.75:-0.6);
+        flicker.setFlick(time.get()<0.25?0.75:-0.75);
     }
 
     protected boolean isFinished() {

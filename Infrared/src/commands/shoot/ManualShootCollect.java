@@ -1,7 +1,6 @@
 package commands.shoot;
 
 import commands.CommandBase;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.OI;
 
@@ -30,6 +29,7 @@ public class ManualShootCollect extends CommandBase {
         double trigger_val = -OI.gamepad_aux.getTriggers();// + -abs(OI.gamepad.getTriggers());
         
         shooter.setFrontMotor(trigger_val/(trigger_val<0?2:1));                             //If we are collecting divide the front wheel by 2
+        shooter.setMiddleMotor(trigger_val);
         shooter.setRearMotor(trigger_val);
         
         SmartDashboard.putNumber("ShooterFront", shooter.getFrontMotor());
@@ -46,7 +46,7 @@ public class ManualShootCollect extends CommandBase {
     }
 
     protected void end() {
-        shooter.setShooter(0);
+        shooter.setShooter(0,0,0);
         shooter.getFrontEncoder().stop();
         shooter.getRearEncoder().stop();
     }
