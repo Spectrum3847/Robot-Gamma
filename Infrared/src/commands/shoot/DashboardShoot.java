@@ -9,6 +9,7 @@ import framework.Dashboard;
  * @author matthew
  */
 public class DashboardShoot extends CommandBase {
+    double front, middle, rear;
 
     public DashboardShoot() {
         requires(CommandBase.shooter);
@@ -16,22 +17,19 @@ public class DashboardShoot extends CommandBase {
 
     protected void initialize() {
         SmartDashboard.putBoolean("dashboardShootingCMD", true);
-        shooter.resetEncoders();
-
-        shooter.getFrontEncoder().start();
-        shooter.getRearEncoder().start();
+        shooter.startEncoders();
+        lights.disableLights();
     }
 
     protected void execute() {
-        //shooter.setBangBang(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY), false);
-        //shooter.setShooter(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY));shooter.setBangBang(SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY), false);
-        shooter.setBangBang(SmartDashboard.getNumber("FRONT MOTOR IN"), SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY), SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY), false);
-        //shooter.motor_f.set(SmartDashboard.getNumber("FRONT MOTOR IN"));
-        //shooter.motor_m.set(SmartDashboard.getNumber("MIDDLE MOTOR IN"));
-        //shooter.motor_r.set(SmartDashboard.getNumber("REAR MOTOR IN"));
+        front = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY ) + SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET);
+        middle = SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY);
+        rear = SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY);
+        shooter.setBangBang(front, middle, rear, false);
+        
         SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
+        SmartDashboard.putNumber("Middle RPM", shooter.getMiddleEncoder().getRate());
         SmartDashboard.putNumber("Rear RPM", shooter.getRearEncoder().getRate());
-        //System.out.println("Front Ticks: " + Integer.toString(shooter.getFrontEncoder().getTicks()) + " Rear Ticks: " + Integer.toString(shooter.getRearEncoder().getTicks()));
     }
 
     protected boolean isFinished() {
@@ -40,6 +38,10 @@ public class DashboardShoot extends CommandBase {
 
     protected void end() {
         shooter.setShooter(0,0,0);
+        shooter.resetEncoders();
+        shooter.stopEncoders();
+        
+        lights.enableLights();
 
         SmartDashboard.putBoolean("dashboardShootingCMD", false);
     }

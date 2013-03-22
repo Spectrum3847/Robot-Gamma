@@ -1,16 +1,13 @@
-package commands.shoot;
+package commands.lift;
 
-import edu.wpi.first.wpilibj.command.CommandGroup;
+import commands.CommandBase;
 
 /**
  *
  * @author matthew
  */
-public class AutonFire extends CommandGroup {
-
-    public AutonFire() {
-        addSequential(new Flick());
-    }
+public class ToggleLights extends CommandBase {
+    
     protected void initialize() {
     }
 
@@ -25,6 +22,7 @@ public class AutonFire extends CommandGroup {
     }
 
     protected void interrupted() {
+        end();
     }
-
+    
 }

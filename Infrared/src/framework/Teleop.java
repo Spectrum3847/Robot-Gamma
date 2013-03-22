@@ -13,7 +13,6 @@ public class Teleop {
     {
         Autonomous.cancel();
         Init.cheesydrive.start();
-        //Init.shooter.start();
         Init.liftcontrol.start();
         Init.test.start();
         Init.dashboardShootCollect.start();

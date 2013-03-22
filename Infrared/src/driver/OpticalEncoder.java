@@ -1,9 +1,6 @@
 package driver;
 
 import edu.wpi.first.wpilibj.Counter;
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Timer;
-import framework.Utilities;
 
 /**
  *
@@ -15,9 +12,6 @@ import framework.Utilities;
  * is used to get rate.
  */
 public class OpticalEncoder extends Counter {
-    private double rate = 0;
-    private double threshold = 200;
-    
     public OpticalEncoder(int channel){
         super(channel);
     }
@@ -27,7 +21,6 @@ public class OpticalEncoder extends Counter {
     }
     
     public double getRate(){
-        //rate = Utilities.abs(getPeriod()-rate)<threshold?(1.0/getPeriod()*60.0):rate;
         return 1.0/getPeriod()*60.0;
     }
 }

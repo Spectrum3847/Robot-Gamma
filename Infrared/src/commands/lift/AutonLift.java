@@ -1,8 +1,6 @@
 package commands.lift;
 
 import commands.CommandBase;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import framework.Dashboard;
 
 /**
  *
@@ -14,8 +12,7 @@ public class AutonLift extends CommandBase {
     }
 
     protected void execute() {
-        //lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_SPEED_KEY));
-        lift.setSpeed(1);
+        lift.setSpeed(-1);
     }
 
     protected boolean isFinished() {
@@ -23,7 +20,7 @@ public class AutonLift extends CommandBase {
     }
 
     protected void end() {
-        lift.setSpeed(0.2);
+        lift.setSpeed(0);
     }
 
     protected void interrupted() {

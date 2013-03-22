@@ -19,7 +19,6 @@ public class CheesyDrive extends CommandBase {
     
     // Called just before this Command runs the first time
     protected void initialize() {
-     Init.driveSelector.setDefaultDriveMode(this);
      drivebase.disableTurnController();
      SmartDashboard.putBoolean("Cheesy", true);           //Tell Smart Dashboard we are in cheesy mode
      drivebase.getLeftEncoder().start();
@@ -33,7 +32,7 @@ public class CheesyDrive extends CommandBase {
         double wheel = Utilities.haloDeadBand(OI.gamepad.getRightX(), OI.gamepad.getLeftY(), .1, .13);
         boolean quickturn = OI.gamepad.getButton(Gamepad.RIGHT_CLICK);
         
-        drivebase.setCheesySensetivity(SmartDashboard.getNumber("CheesySensetivity"));
+        drivebase.setCheesySensetivity(1.32);
         
         double quickTurnTriggers = OI.gamepad.getTriggers();
         if (quickTurnTriggers != 0){
@@ -42,12 +41,6 @@ public class CheesyDrive extends CommandBase {
         } else{
             drivebase.setCheesyDrive(throttle, wheel,quickturn);
         }
-        SmartDashboard.putBoolean("Quick Turn", quickturn);
-        SmartDashboard.putNumber("Throttle", throttle);
-        SmartDashboard.putNumber("Wheel", wheel);
-        
-        SmartDashboard.putNumber("Left Encoder", drivebase.getLeftEncoder().get());
-        SmartDashboard.putNumber("Right Encoder", drivebase.getRightEncoder().get());
     }
 
     // Make this return true when this Command no longer needs to run execute()

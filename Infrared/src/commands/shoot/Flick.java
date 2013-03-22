@@ -14,6 +14,7 @@ public class Flick extends CommandBase {
         //requires(flicker);
         time  = new Timer();
         time.start();
+        lights.toggleLights();
     }
 
     protected void execute() {
@@ -26,6 +27,7 @@ public class Flick extends CommandBase {
 
     protected void end() {
         time.stop();
+        lights.toggleLights();
         flicker.setFlick(0);
     }
     

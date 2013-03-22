@@ -64,7 +64,7 @@ public class DriveBase extends PIDSubsystem {
       * re-enabled after breaking or turning.
       */
     public void initDefaultCommand(){
-        setDefaultCommand(Init.gamepaddrive);   // set default command
+        setDefaultCommand(Init.cheesydrive);   // set default command
     }
     
     /**

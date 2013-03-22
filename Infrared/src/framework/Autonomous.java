@@ -1,29 +1,20 @@
 package framework;
 
-import commands.autonomous.AutonFourDiscs;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+import commands.autonomous.AutonGroup1;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /*
  * @author matthew
  */
 public class Autonomous {
-    
     public static void init()
     {
-        Scheduler.getInstance().removeAll();
-        Init.auton = new AutonFourDiscs(false);
-        Init.auton.start();
-        
-        /*
-         * if(SmartDashboard.getBoolean(Dashboard.AUTON_ENABLED_KEY))
+        Init.auton = ((new DigitalInput(HW.AUTON_PICK)).get())?Init.auton2:Init.auton1;
+        if((new DigitalInput(HW.AUTON_KILL)).get())
         {
-            Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_FOUR_SEVEN_KEY))?((Command) new AutonFourDiscs(false)):((Command) new AutonSevenDiscs());
             Init.auton.start();
         }
-        */
     }
 
     public static void periodic()
@@ -34,7 +25,8 @@ public class Autonomous {
     
     public static void cancel()
     {
-        if(Init.auton != null) {
+        if((new DigitalInput(HW.AUTON_KILL)).get())
+        {
             Init.auton.cancel();
         }
     }
