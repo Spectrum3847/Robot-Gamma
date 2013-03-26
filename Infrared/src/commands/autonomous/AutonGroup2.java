@@ -1,8 +1,9 @@
 package commands.autonomous;
 
-import commands.lift.AutonDrive;
+import commands.CommandBase;
+import commands.driving.AutonDrive;
 import commands.lift.AutonLift;
-import commands.shoot.AutoFireSingle;
+import commands.shoot.Flick;
 import commands.shoot.AutonSetShooter;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
@@ -15,28 +16,33 @@ public class AutonGroup2 extends CommandGroup
 {
     public AutonGroup2() {
         super();
+        requires(CommandBase.shooter);
+        requires(CommandBase.drivebase);
+        requires(CommandBase.lift);
+        requires(CommandBase.flicker);
         this.addParallel(new AutonSetShooter(), 6);
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new AutonLift(), 0.5);
-        this.addParallel(new AutonSetShooter(-0.65), 2);
-        this.addSequential(new AutonDrive(0.75), 2);
-        this.addSequential(new AutonDrive(-0.75), 2);
+        this.addParallel(new AutonSetShooter(-0.65), 4);
+        this.addSequential(new AutonDrive(0.85), 2);
+        this.addSequential(new WaitCommand(0.5));
+        this.addSequential(new AutonDrive(-0.85), 1.5);
         this.addParallel(new AutonSetShooter(), 6);
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        this.addSequential(new Flick());
     }
     
     // Called just before this Command runs the first time

@@ -18,7 +18,10 @@ public class Flick extends CommandBase {
     }
 
     protected void execute() {
-        flicker.setFlick(time.get()<0.25?0.75:-0.75);
+        if(shooter.motor_f.get() > 0.1)
+        {
+            flicker.setFlick(time.get()<0.25?0.8:-0.8);
+        }
     }
 
     protected boolean isFinished() {

@@ -1,5 +1,7 @@
 package framework;
 
+import commands.shoot.FrontShooterDec;
+import commands.shoot.FrontShooterInc;
 import driver.Gamepad;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -19,7 +21,7 @@ public class OI {
     public static final Button dashboard_shoot = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.LEFT_BUMPER);
 
     public static final Button front_inc = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.Y_BUTTON);
-    public static final Button front_dec = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.X_BUTTON);
+    public static final Button front_dec = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.A_BUTTON);
     
     //Use this constructor to setup up button schedulers for commands
     public OI() {

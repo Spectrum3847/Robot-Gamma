@@ -1,7 +1,5 @@
 package framework;
 
-import commands.CommandBase;
-import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**

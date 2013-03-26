@@ -1,6 +1,5 @@
 package framework;
 
-import commands.autonomous.AutonGroup1;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
@@ -10,8 +9,8 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Autonomous {
     public static void init()
     {
-        Init.auton = ((new DigitalInput(HW.AUTON_PICK)).get())?Init.auton2:Init.auton1;
-        if((new DigitalInput(HW.AUTON_KILL)).get())
+        Init.auton = Init.auton1; //(Init.auton_pick.get())?Init.auton2:Init.auton1;
+        if(Init.auton_switch.get())
         {
             Init.auton.start();
         }
@@ -25,7 +24,8 @@ public class Autonomous {
     
     public static void cancel()
     {
-        if((new DigitalInput(HW.AUTON_KILL)).get())
+        Init.auton = Init.auton1;
+        if(Init.auton_switch.get())
         {
             Init.auton.cancel();
         }

@@ -26,7 +26,7 @@ public class Dashboard {
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
-            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 9300);
+            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 8800);
             SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 4750);
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 3700);
             

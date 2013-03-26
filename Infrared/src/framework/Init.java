@@ -4,8 +4,8 @@ import commands.CommandBase;
 import commands.autonomous.AutonGroup1;
 import commands.autonomous.AutonGroup2;
 import commands.lift.LiftControl;
-import commands.shoot.AutonSetShooter;
 import commands.shoot.Flick;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -30,6 +30,9 @@ public class Init {
     public static Command auton1 = new AutonGroup1();
     public static Command auton2 = new AutonGroup2();
     public static Command auton;
+    
+    public static DigitalInput auton_switch = new DigitalInput(HW.AUTON_KILL);
+    public static DigitalInput auton_pick = new DigitalInput(HW.AUTON_PICK);
 
     public static void init() {
         CommandBase.init();

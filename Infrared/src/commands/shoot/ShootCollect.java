@@ -1,11 +1,9 @@
 package commands.shoot;
 
 import commands.CommandBase;
-import driver.Gamepad;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.Dashboard;
 import framework.OI;
-import subsystems.Shooter;
 
 /**
  *
@@ -19,7 +17,6 @@ public class ShootCollect extends CommandBase {
     }
     
     protected void initialize() {
-        SmartDashboard.putBoolean("dashboardShootingCMD", true);
         shooter.startEncoders();
         lights.enableLights();
     }
@@ -60,8 +57,6 @@ public class ShootCollect extends CommandBase {
         shooter.stopEncoders();
         
         lights.disableLights();
-        
-        SmartDashboard.putBoolean("dashboardShootingCMD", false);
     }
 
     protected void interrupted() {

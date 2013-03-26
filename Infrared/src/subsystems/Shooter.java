@@ -1,10 +1,8 @@
 package subsystems;
 
 import driver.OpticalEncoder;
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.HW;
 import framework.Init;
 import framework.Utilities;
@@ -32,6 +30,7 @@ public class Shooter extends Subsystem {
     
     
     public void initDefaultCommand() {
+        this.setDefaultCommand(Init.dashboardShootCollect);
     }
     
     public void setShooter(double front, double middle, double rear){

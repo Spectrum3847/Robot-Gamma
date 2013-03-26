@@ -21,6 +21,7 @@ public class AutonSetShooter extends CommandBase {
         front = values;
         middle = values;
         rear = values;
+        collect = true;
     }
     
     protected void initialize() {

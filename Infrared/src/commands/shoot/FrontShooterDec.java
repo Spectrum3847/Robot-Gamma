@@ -8,9 +8,10 @@ import framework.Dashboard;
  * @author matthew
  */
 public class FrontShooterDec extends CommandBase {
+    double tmp;
 
     protected void initialize() {
-        double tmp = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET) - 100;
+        tmp = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET) - 50;
         SmartDashboard.putNumber(Dashboard.FRONT_SHOOTER_OFFSET, tmp);
     }
 
@@ -18,7 +19,7 @@ public class FrontShooterDec extends CommandBase {
     }
 
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {

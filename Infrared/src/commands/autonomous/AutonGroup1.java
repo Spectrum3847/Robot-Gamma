@@ -1,9 +1,11 @@
 package commands.autonomous;
 
-import commands.lift.AutonDrive;
+import commands.CommandBase;
+import commands.driving.AutonDrive;
 import commands.lift.AutonLift;
 import commands.shoot.AutoFireSingle;
 import commands.shoot.AutonSetShooter;
+import commands.shoot.Flick;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
@@ -15,21 +17,23 @@ public class AutonGroup1 extends CommandGroup
 {
     public AutonGroup1() {
         super();
-        this.addParallel(new AutonSetShooter(), 10);
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
-        this.addSequential(new WaitCommand(1));
-        this.addSequential(new AutoFireSingle());
+        requires(CommandBase.shooter);
+        requires(CommandBase.drivebase);
+        requires(CommandBase.lift);
+        requires(CommandBase.flicker);
+        this.addParallel(new AutonSetShooter(), 15);
+        this.addSequential(new WaitCommand(2));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(2.5));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(2.5));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(2.5));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(2.5));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(0.5));
         this.addSequential(new AutonLift(), 0.5);
-        this.addSequential(new AutonDrive(-1), 2);
     }
     
     // Called just before this Command runs the first time

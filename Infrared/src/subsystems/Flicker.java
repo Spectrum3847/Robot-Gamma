@@ -3,7 +3,6 @@ package subsystems;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import framework.HW;
-import framework.Init;
 
 /**
  * @author matthew

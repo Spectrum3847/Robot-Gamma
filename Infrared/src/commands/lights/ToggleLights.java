@@ -1,4 +1,4 @@
-package commands.lift;
+package commands.lights;
 
 import commands.CommandBase;
 

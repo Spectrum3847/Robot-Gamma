@@ -1,8 +1,7 @@
 package framework;
 
-
 /*
- * @author JAG
+ * @author JAG, matthew
  */
 public class Utilities {
     

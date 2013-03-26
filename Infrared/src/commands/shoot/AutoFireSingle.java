@@ -20,15 +20,16 @@ public class AutoFireSingle extends CommandBase {
         front = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY);
         middle = SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY);
         rear = SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY);
+        Init.flick.start();
     }
 
     protected void execute() {
-        if(shooter.atSpeeds(front, middle, rear, 400) && !hasGone)
-        {
-            Init.flick.start();
-            hasGone = true;
-            hasFinished = Init.flick.isCanceled();
-        }
+//        if(!hasGone)//shooter.atSpeeds(front, middle, rear, 100) && !hasGone)
+//        {
+//            Init.flick.start();
+//            hasGone = true;
+//            hasFinished = Init.flick.isCanceled();
+//        }
         
             SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
             SmartDashboard.putNumber("Middle RPM", shooter.getMiddleEncoder().getRate());

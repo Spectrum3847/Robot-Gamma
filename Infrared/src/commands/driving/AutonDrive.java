@@ -1,4 +1,4 @@
-package commands.lift;
+package commands.driving;
 
 import commands.CommandBase;
 
@@ -25,7 +25,6 @@ public class AutonDrive extends CommandBase {
 
     protected void execute() {
         drivebase.setArcade(direction, 0);
-        System.out.println(drivebase.getVictor(2));
     }
 
     protected boolean isFinished() {
