@@ -3,6 +3,7 @@ package commands.driving;
 import commands.CommandBase;
 import driver.Gamepad;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 import framework.OI;
 import framework.Utilities;
 
@@ -30,7 +31,7 @@ public class CheesyDrive extends CommandBase {
         double wheel = Utilities.haloDeadBand(OI.gamepad.getRightX(), OI.gamepad.getLeftY(), .1, .13);
         boolean quickturn = OI.gamepad.getButton(Gamepad.RIGHT_CLICK);
         
-        drivebase.setCheesySensetivity(1.32);
+        drivebase.setCheesySensetivity(SmartDashboard.getNumber(Dashboard.CHEESY_SENSITIVITY_KEY));
         
         double quickTurnTriggers = OI.gamepad.getTriggers();
         if (quickTurnTriggers != 0){

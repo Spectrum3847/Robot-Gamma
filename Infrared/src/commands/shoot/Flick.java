@@ -9,6 +9,8 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Flick extends CommandBase {
     Timer time;
+    double start = 0.2;
+    double end = start + 0.1;
 
     protected void initialize() {
         //requires(flicker);
@@ -20,12 +22,12 @@ public class Flick extends CommandBase {
     protected void execute() {
         if(shooter.motor_f.get() > 0.1)
         {
-            flicker.setFlick(time.get()<0.25?0.8:-0.8);
+            flicker.setFlick(time.get()<start?0.8:-0.8);
         }
     }
 
     protected boolean isFinished() {
-        return time.get()>0.4?true:false;
+        return time.get()>end?true:false;
     }
 
     protected void end() {

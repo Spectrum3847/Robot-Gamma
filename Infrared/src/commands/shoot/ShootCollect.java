@@ -33,10 +33,18 @@ public class ShootCollect extends CommandBase {
         else
         {
             double trigger_val = -OI.gamepad_aux.getTriggers();
-            shooter.setFrontMotor(trigger_val*(trigger_val<0?2:SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY)));  //If we are collecting divide the front wheel by 2
-            shooter.setMiddleMotor(trigger_val*SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY));
-            shooter.setRearMotor(trigger_val*SmartDashboard.getNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY));
-        
+            if(trigger_val > 0)
+            {
+                shooter.setFrontMotor(trigger_val*SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY));
+                shooter.setMiddleMotor(trigger_val*SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY));
+                shooter.setRearMotor(trigger_val*SmartDashboard.getNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY));
+            }
+            else
+            {
+                shooter.setFrontMotor(trigger_val*SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY));
+                shooter.setMiddleMotor(trigger_val*SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY));
+                shooter.setRearMotor(trigger_val*SmartDashboard.getNumber(Dashboard.REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY));
+            }
             SmartDashboard.putNumber("Shooter Front Voltage", shooter.getFrontMotor());
             SmartDashboard.putNumber("Shooter Middle Voltage", shooter.getMiddleMotor());
             SmartDashboard.putNumber("Shooter Rear Voltage", shooter.getRearMotor());

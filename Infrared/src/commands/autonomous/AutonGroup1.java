@@ -30,10 +30,9 @@ public class AutonGroup1 extends CommandGroup
         this.addSequential(new Flick());
         this.addSequential(new WaitCommand(2.5));
         this.addSequential(new Flick());
-        this.addSequential(new WaitCommand(2.5));
-        this.addSequential(new Flick());
         this.addSequential(new WaitCommand(0.5));
         this.addSequential(new AutonLift(), 0.5);
+        this.addSequential(new AutonDrive(-0.75), 1.75);
     }
     
     // Called just before this Command runs the first time

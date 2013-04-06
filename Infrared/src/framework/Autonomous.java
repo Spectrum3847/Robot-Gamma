@@ -2,6 +2,7 @@ package framework;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /*
  * @author matthew
@@ -9,8 +10,19 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 public class Autonomous {
     public static void init()
     {
-        Init.auton = Init.auton1; //(Init.auton_pick.get())?Init.auton2:Init.auton1;
+        /*
+        //Init.auton = Init.auton1; 
+        SmartDashboard.putBoolean("Auton Status", Init.auton_pick.get());
+        SmartDashboard.putBoolean("Auton Switch", Init.auton_switch.get());
+        Init.auton = (Init.auton_pick.get())?Init.auton2:Init.auton1;
         if(Init.auton_switch.get())
+        {
+            Init.auton.start();
+        }
+        */
+        
+        Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY))?Init.auton2:Init.auton1;
+        if(SmartDashboard.getBoolean(Dashboard.AUTON_SWITCH_KEY))
         {
             Init.auton.start();
         }

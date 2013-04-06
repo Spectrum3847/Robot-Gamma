@@ -23,10 +23,19 @@ public class Dashboard {
     public static String FRONT_MOTOR_ANALOG_SCALE_KEY = "FRONT MOTOR ANALOG SCALE VALUE";
     public static String MIDDLE_MOTOR_ANALOG_SCALE_KEY = "MIDDLE MOTOR ANALOG SCALE VALUE";
     public static String REAR_MOTOR_ANALOG_SCALE_KEY = "REAR MOTOR ANALOG SCALE VALUE";
+    
+    public static String CHEESY_SENSITIVITY_KEY = "CHEESY SENSITIVITY";
+    
+    public static String AUTON_SWITCH_KEY = "Auton On";
+    public static String AUTON_TYPE_KEY = "Auton 5 Disk";
+    
+    public static String FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY = "FRONT MOTOR ANALOG COLLECT SCALE VALUE";
+    public static String MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY = "MIDDLE MOTOR ANALOG COLLECT SCALE VALUE";
+    public static String REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY = "REAR MOTOR ANALOG SCALE COLLECT VALUE";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
-            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 8800);
+            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 7800);
             SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 4750);
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 3700);
             
@@ -35,6 +44,15 @@ public class Dashboard {
             SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY, 0.8);
             SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY, 0.86);
             SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY, 0.95);
+            
+            SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.6);
+            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.65);
+            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.75);
+            
+            SmartDashboard.putNumber(Dashboard.CHEESY_SENSITIVITY_KEY, 1.32);
+            
+            SmartDashboard.putBoolean(AUTON_SWITCH_KEY, true);
+            SmartDashboard.putBoolean(AUTON_TYPE_KEY, false);
         }
     }
 

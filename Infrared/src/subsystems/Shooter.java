@@ -51,30 +51,22 @@ public class Shooter extends Subsystem {
         motor_r.set(speed);
     }
     
-//    public void setFrontMotorDashboard(){
-//        setFrontMotor(SmartDashboard.getNumber("FrontMotorInput"));
-//    }
-//    
-//    public void setMiddleMotorDashboard(){
-//        setRearMotor(SmartDashboard.getNumber("MiddleMotorInput"));
-//    }
-//    
-//    public void setRearMotorDashboard(){
-//        setRearMotor(SmartDashboard.getNumber("RearMotorInput"));
-//    }
-    
-    public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r, boolean collect){
-        if(encoder_f.getRate() > setpoint_f)
-            setFrontMotor(0.0);
-        else setFrontMotor(collect?-1.0:1.0);
+    public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
+        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
+        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
+        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
         
-        if(encoder_m.getRate() > setpoint_m)
-            setMiddleMotor(0.0);
-        else setMiddleMotor(collect?-1.0:1.0);
+        if(rate_f > setpoint_f)
+            setFrontMotor(0.1);
+        else setFrontMotor(1.0);
         
-        if(encoder_r.getRate() > setpoint_r)
-            setRearMotor(0.0);
-        else setRearMotor(collect?-1.0:1.0);
+        if(rate_m > setpoint_m)
+            setMiddleMotor(0.1);
+        else setMiddleMotor(1.0);
+        
+        if(rate_r > setpoint_r)
+            setRearMotor(0.1);
+        else setRearMotor(1.0);
     }
     
     public double getFrontMotor() {
