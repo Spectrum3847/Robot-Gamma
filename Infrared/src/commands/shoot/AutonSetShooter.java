@@ -37,6 +37,7 @@ public class AutonSetShooter extends CommandBase {
     protected void execute() {
         if(!collect)
             shooter.setBangBang(front, middle, rear);
+        //change to shooter.doDaPid(front, middle, rear);
         else
             shooter.setShooter(front, middle, rear);
     }

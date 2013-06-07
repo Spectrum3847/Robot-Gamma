@@ -13,7 +13,8 @@ public class Teleop {
         Init.cheesydrive.start();
         Init.liftcontrol.start();
         Init.test.start();
-        Init.dashboardShootCollect.start();
+        //Init.dashboardShootCollect.start();
+        Init.PIDShootCommand.start();
     }
 
     static int number = 0;

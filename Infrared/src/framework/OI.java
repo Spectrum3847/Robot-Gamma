@@ -20,6 +20,8 @@ public class OI {
     
     public static final Button dashboard_shoot = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.LEFT_BUMPER);
 
+    public static final Button PID_shoot = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.B_BUTTON);
+
     public static final Button front_inc = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.Y_BUTTON);
     public static final Button front_dec = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.A_BUTTON);
     
@@ -28,6 +30,7 @@ public class OI {
         flick.whenPressed(Init.flick);
         
         dashboard_shoot.toggleWhenPressed(Init.dashboardShoot);
+        PID_shoot.toggleWhenPressed(Init.PIDShootCommand);
         
         front_inc.whenPressed(Init.inc);
         front_dec.whenPressed(Init.dec);

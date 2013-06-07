@@ -51,6 +51,15 @@ public class Shooter extends Subsystem {
         motor_r.set(speed);
     }
     
+    //PID code here, change implementation in AutonSetShooter.java to PID instead of setBangBang
+    public void doDaPID(double setpoint_f, double setpoint_m, double setpoint_r){
+        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
+        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
+        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
+        
+        //PID stuff here
+    }
+    
     public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
         double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
         double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
@@ -111,14 +120,51 @@ public class Shooter extends Subsystem {
         encoder_r.start();
     }
     
+    public void startFrontEncoder(){
+        encoder_f.start();
+    }
+    
+    public void startMiddleEncoder(){
+        encoder_m.start();
+    }
+    
+    public void startRearEncoder(){
+        encoder_r.start();
+    }
+    
     public void stopEncoders() {
         encoder_f.stop();
         encoder_m.stop();
         encoder_r.stop();
     }
+    
+    public void stopFrontEncoder(){
+        encoder_f.stop();
+    }
+    
+    public void stopMiddleEncoder(){
+        encoder_m.stop();
+    }
+    
+    public void stopRearEncoder(){
+        encoder_r.stop();
+    }
+    
     public void resetEncoders() {
         encoder_f.reset();
         encoder_m.reset();
+        encoder_r.reset();
+    }
+    
+    public void resetFrontEncoder(){
+        encoder_f.reset();
+    }
+    
+    public void resetMiddleEncoder(){
+        encoder_m.reset();
+    }
+    
+    public void resetRearEncoder(){
         encoder_r.reset();
     }
     
