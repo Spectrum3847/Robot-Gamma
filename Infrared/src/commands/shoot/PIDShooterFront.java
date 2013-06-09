@@ -15,36 +15,31 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class PIDShooterFront extends PIDCommand {
 
     private double inputLow = 0;
-    private double inputHigh = 10000;
+    private double inputHigh = 12000;
+    
+    private double output = 10000;
+    
     private double tolerance = 0;
     
     private double platypus;
     private double iguana;
     private double dipstick;
-    private double frito;
     
     private double oldOutput = 0;
-    
-    public PIDShooterFront(double p, double i, double d, double f) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-        super(p,i,d,f);
-        requires(CommandBase.shooter);
-        getPIDController().setInputRange(inputLow, inputHigh);
-        getPIDController().setOutputRange(-1000,1000);
-        getPIDController().setAbsoluteTolerance(tolerance);
-        platypus = p;
-        iguana = i;
-        dipstick = d;
-        frito = f;
-    } 
     
     public PIDShooterFront(double p, double i, double d) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-        this(p,i,d, .5);
-    }
-    
+        super(p,i,d,0.25);
+        requires(CommandBase.shooter);
+        getPIDController().setInputRange(inputLow, inputHigh);
+        getPIDController().setOutputRange(-output,output);
+        getPIDController().setAbsoluteTolerance(tolerance);
+        getPIDController().setSetpoint(0);
+        platypus = p;
+        iguana = i;
+        dipstick = d;
+    } 
 
 
     public void setTolerance(double t){
@@ -56,28 +51,22 @@ public class PIDShooterFront extends PIDCommand {
         platypus = p;
         iguana = i;
         dipstick = d;
-        frito = f;
-        getPIDController().setPID(platypus, iguana, dipstick, frito);
+        getPIDController().setPID(platypus, iguana, dipstick);
     }
     
     public void setP(double p){
         platypus = p;
-        getPIDController().setPID(platypus, iguana, dipstick, frito);
+        getPIDController().setPID(platypus, iguana, dipstick);
     }
     
     public void setI(double i){
         iguana = i;
-        getPIDController().setPID(platypus, iguana, dipstick, frito);
+        getPIDController().setPID(platypus, iguana, dipstick);
     }
     
     public void setD(double d){
         dipstick = d;
-        getPIDController().setPID(platypus, iguana, dipstick, frito);
-    }
-    
-    public void setF(double f){
-        frito = f;
-        getPIDController().setPID(platypus, iguana, dipstick, frito);
+        getPIDController().setPID(platypus, iguana, dipstick);
     }
     
     public double getP(){ 
@@ -101,9 +90,16 @@ public class PIDShooterFront extends PIDCommand {
     }
     
     protected void usePIDOutput(double x){
-        oldOutput += x/1000;
-        CommandBase.shooter.setFrontMotor(oldOutput);
-        System.out.println("Using the Front Output");
+        if(getPIDController().isEnable())
+        {
+            
+            double newOutput = oldOutput + x/output;
+            if(newOutput < 1 || newOutput > -1)
+                oldOutput = newOutput;
+            
+            CommandBase.shooter.setFrontMotor(oldOutput);
+            System.out.println("Using the Front Output ");
+        }
     }
     
     protected double returnPIDInput(){
@@ -117,10 +113,10 @@ public class PIDShooterFront extends PIDCommand {
     // Called just before this Command runs the first time
     protected void initialize() {
         CommandBase.shooter.startFrontEncoder();
+        getPIDController().reset();
         getPIDController().enable();
-        getPIDController().setPID(.1, 0, 0, 0);
-        getPIDController().setSetpoint(4000);
         System.out.println("PID SHOOT FRONT STARTED");
+        oldOutput = 0;
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -132,6 +128,10 @@ public class PIDShooterFront extends PIDCommand {
         SmartDashboard.putNumber("Front Setpoint", this.getSetpoint());
         SmartDashboard.putNumber("Front Error", this.getPIDController().getError());
         SmartDashboard.putNumber("Front Motor Output", CommandBase.shooter.getFrontMotor());
+        if(getPIDController().isEnable() == false)
+        {
+            CommandBase.shooter.setFrontMotor(0);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -145,6 +145,7 @@ public class PIDShooterFront extends PIDCommand {
         CommandBase.shooter.resetFrontEncoder();
         CommandBase.shooter.stopFrontEncoder();
         System.out.println("PID SHOOT FRONT ENDED");
+        getPIDController().disable();
     }
 
     // Called when another command which requires one or more of the same
@@ -152,4 +153,13 @@ public class PIDShooterFront extends PIDCommand {
     protected void interrupted() {
         end();
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

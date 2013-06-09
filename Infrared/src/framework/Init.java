@@ -20,8 +20,7 @@ public class Init {
     public static Command cheesydrive = new commands.driving.CheesyDrive();
     public static Command dashboardShoot = new commands.shoot.DashboardShoot();
     public static Command dashboardShootCollect = new commands.shoot.ShootCollect();
-    public static PIDShoot PIDShootCommand = new commands.shoot.PIDShoot(0,0,0);
-    public static PIDShooterFront PIDShootFront = new commands.shoot.PIDShooterFront(0,0,0);
+    public static PIDShoot PIDShootCommand = new commands.shoot.PIDShoot();
     public static Command test = new commands.test.TestClass();
     
     public static Command inc = new commands.shoot.FrontShooterInc();

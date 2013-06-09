@@ -13,8 +13,8 @@ public class Lights extends Subsystem {
     
     public Lights() {
         super("Lights");
-        light = new Relay(HW.LIGHT_PORT);
-        light.set(Relay.Value.kOff);
+        //light;
+        //light.set(Relay.Value.kOff);
     }
     
     public void enableLights() {

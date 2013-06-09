@@ -33,7 +33,7 @@ public class PIDShoot extends CommandGroup {
     private double mf = 0;
     private double rf = 0;
     
-    public PIDShoot(double p, double i, double d, double f){
+    public PIDShoot(){
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -51,19 +51,28 @@ public class PIDShoot extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
         requires(CommandBase.shooter);
-        frontCommand = new PIDShooterFront(p,i,d,f);
-        middleCommand = new PIDShooterMiddle(p,i,d,f);
-        rearCommand = new PIDShooterRear(p,i,d,f);
+        fp = SmartDashboard.getNumber("FRONT_PID/p", 0.1);
+        fi = SmartDashboard.getNumber("FRONT_PID/i", 0);
+        fd = SmartDashboard.getNumber("FRONT_PID/d", 0);
+        
+        mp = SmartDashboard.getNumber("MIDDLE_PID/p", 0.1);
+        mi = SmartDashboard.getNumber("MIDDLE_PID/i", 0);
+        md = SmartDashboard.getNumber("MIDDLE_PID/d", 0);
+        
+        rp = SmartDashboard.getNumber("REAR_PID/p", 0.1);
+        ri = SmartDashboard.getNumber("REAR_PID/i", 0);
+        rd = SmartDashboard.getNumber("REAR_PID/d", 0);
+        
+        System.out.println();
+        frontCommand = new PIDShooterFront(fp,fi,fd);
+        middleCommand = new PIDShooterMiddle(mp,mi,md);
+        rearCommand = new PIDShooterRear(rp,ri,rd);
         addParallel(frontCommand);
         addParallel(middleCommand);
         addParallel(rearCommand);
         SmartDashboard.putData("FRONT_PID", frontCommand.getPIDController());
         //SmartDashboard.putData("MIDDLE_PID", middleCommand);
         //SmartDashboard.putData("REAR_PID", rearCommand);
-    }
-    
-    public PIDShoot(double p, double i, double d) {
-        this(p,i,d,0);
     }
         
     protected void initialize() {

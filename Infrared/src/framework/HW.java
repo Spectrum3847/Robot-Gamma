@@ -13,6 +13,8 @@ public class HW {
     public static final int FRONT_LDRIVE_MOTOR = 1;
     public static final int REAR_LDRIVE_MOTOR = 2;
     
+    public static final int KLUDGE_MOTOR = 5;
+    
     /**NON-DRIVEBASE MOTOR ASSIGNMENTS (PWM)**/
     public static final int FRONT_SHOOTER_MOTOR = 8;
     public static final int REAR_SHOOTER_MOTOR = 7;
