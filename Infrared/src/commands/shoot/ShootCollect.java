@@ -50,9 +50,9 @@ public class ShootCollect extends CommandBase {
             SmartDashboard.putNumber("Shooter Rear Voltage", shooter.getRearMotor());
         }
         
-        SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
-        SmartDashboard.putNumber("Middle RPM", shooter.getMiddleEncoder().getRate());
-        SmartDashboard.putNumber("Rear RPM", shooter.getRearEncoder().getRate());
+        SmartDashboard.putNumber("Front RPM", shooter.FrontMotorRate());
+        SmartDashboard.putNumber("Middle RPM", shooter.MiddleMotorRate());
+        SmartDashboard.putNumber("Rear RPM", shooter.RearMotorRate());
     }
 
     protected boolean isFinished() {

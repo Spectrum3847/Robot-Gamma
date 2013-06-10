@@ -19,6 +19,10 @@ public class Flicker extends Subsystem {
     public void setFlick(double speed) {
         flickmotor.set(speed);
     }
+    
+    public double getFlick(){
+        return flickmotor.get();
+    }
 
     protected void initDefaultCommand() {
     }

@@ -14,6 +14,9 @@ public class Shooter extends Subsystem {
     private OpticalEncoder encoder_f;
     private OpticalEncoder encoder_m;
     private OpticalEncoder encoder_r;
+    private double last_f = 0;
+    private double last_m = 0;
+    private double last_r = 0;
     
     // Initialize your subsystem here
     public Shooter() {
@@ -61,20 +64,20 @@ public class Shooter extends Subsystem {
     }
     
     public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
-        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
-        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
-        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
+        double rate_f = FrontMotorRate();
+        double rate_m = MiddleMotorRate();
+        double rate_r = RearMotorRate();
         
         if(rate_f > setpoint_f)
-            setFrontMotor(0.1);
+            setFrontMotor(0.4);
         else setFrontMotor(1.0);
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(0.1);
+            setMiddleMotor(0.4);
         else setMiddleMotor(1.0);
         
         if(rate_r > setpoint_r)
-            setRearMotor(0.1);
+            setRearMotor(0.7);
         else setRearMotor(1.0);
     }
     
@@ -91,15 +94,18 @@ public class Shooter extends Subsystem {
     }
     
     public double FrontMotorRate() {
-        return encoder_f.getRate();
+        last_f = encoder_f.getRate()>14000?last_f:encoder_f.getRate();
+        return last_f;
     }
     
     public double MiddleMotorRate() {
-        return encoder_m.getRate();
+        last_m = encoder_m.getRate()>14000?last_m:encoder_m.getRate();
+        return last_m;
     }
     
     public double RearMotorRate() {
-        return encoder_r.getRate();
+        last_r =  encoder_r.getRate()>14000?last_r:encoder_r.getRate();
+        return last_r;
     }
     
     public OpticalEncoder getFrontEncoder() {

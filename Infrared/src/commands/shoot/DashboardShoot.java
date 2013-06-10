@@ -25,7 +25,13 @@ public class DashboardShoot extends CommandBase {
         front = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY ) + SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET);
         middle = SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY);
         rear = SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY);
-        shooter.setBangBang(front, middle, rear);
+        //shooter.setBangBang(front, middle, rear);
+        
+        if (CommandBase.flicker.getFlick() == 0){
+           shooter.setBangBang(front, middle, rear); 
+        } else{
+            shooter.setShooter(1, 1, 1);
+        }
         
         SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
         SmartDashboard.putNumber("Middle RPM", shooter.getMiddleEncoder().getRate());
