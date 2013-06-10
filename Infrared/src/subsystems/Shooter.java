@@ -73,12 +73,28 @@ public class Shooter extends Subsystem {
         else setFrontMotor(1.0);
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(0.4);
+            setMiddleMotor(0.6);
         else setMiddleMotor(1.0);
         
         if(rate_r > setpoint_r)
             setRearMotor(0.7);
         else setRearMotor(1.0);
+    }
+    
+    public void setCollectBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
+        double rate_f = FrontMotorRate();
+        double rate_m = MiddleMotorRate();
+        double rate_r = RearMotorRate();
+        
+        if(rate_m > setpoint_m)
+            setMiddleMotor(-.4);
+        else
+            setMiddleMotor(-.75);
+        
+        if(rate_r > setpoint_r)
+            setRearMotor(-.4);
+        else
+            setRearMotor(-.75);
     }
     
     public double getFrontMotor() {
