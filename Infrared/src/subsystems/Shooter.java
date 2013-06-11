@@ -3,6 +3,8 @@ package subsystems;
 import driver.OpticalEncoder;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import framework.Dashboard;
 import framework.HW;
 import framework.Init;
 import framework.Utilities;
@@ -196,5 +198,11 @@ public class Shooter extends Subsystem {
             return true;
         }
         return false;
+    }
+    public boolean atSpeeds() {
+        double front = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY ) + SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET);
+        double middle = SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY);
+        double rear = SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY);
+        return atSpeeds(front, middle, rear, 200);
     }
 }

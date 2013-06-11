@@ -36,7 +36,7 @@ public class DashboardShoot extends CommandBase {
         SmartDashboard.putNumber("Front RPM", shooter.getFrontEncoder().getRate());
         SmartDashboard.putNumber("Middle RPM", shooter.getMiddleEncoder().getRate());
         SmartDashboard.putNumber("Rear RPM", shooter.getRearEncoder().getRate());
-        SmartDashboard.putBoolean("Shooter To Speed", shooter.atSpeeds(front, middle, rear, 100));
+        SmartDashboard.putBoolean("Shooter To Speed", shooter.atSpeeds(front, middle, rear, 200));
     }
 
     protected boolean isFinished() {

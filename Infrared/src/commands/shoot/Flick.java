@@ -9,8 +9,12 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Flick extends CommandBase {
     Timer time;
-    double start = 0.2;
+    double start = 0.1;
     double end = start + 0.1;
+    
+    public Timer getTimer() {
+        return time;
+    }
 
     protected void initialize() {
         //requires(flicker);

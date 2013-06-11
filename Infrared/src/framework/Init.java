@@ -4,6 +4,7 @@ import commands.CommandBase;
 import commands.autonomous.AutonGroup1;
 import commands.autonomous.AutonGroup2;
 import commands.lift.LiftControl;
+import commands.shoot.FireAll;
 import commands.shoot.Flick;
 import commands.shoot.PIDShoot;
 import commands.shoot.PIDShooterFront;
@@ -22,6 +23,7 @@ public class Init {
     public static Command dashboardCollect = new commands.shoot.DashboardCollect();
     public static Command dashboardShootCollect = new commands.shoot.ShootCollect();
     public static PIDShoot PIDShootCommand = new commands.shoot.PIDShoot();
+    public static Command fireall = new FireAll();
     public static Command test = new commands.test.TestClass();
     
     public static Command inc = new commands.shoot.FrontShooterInc();
@@ -29,7 +31,7 @@ public class Init {
     
     public static Command liftcontrol = new LiftControl();
     
-    public static Command flick = new Flick();
+    public static Flick flick = new Flick();
     
     public static Command auton1 = new AutonGroup1();
     public static Command auton2 = new AutonGroup2();
