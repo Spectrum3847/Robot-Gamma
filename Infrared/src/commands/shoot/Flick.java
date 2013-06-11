@@ -16,13 +16,15 @@ public class Flick extends CommandBase {
         //requires(flicker);
         time  = new Timer();
         time.start();
-        lights.toggleLights();
+        lights.enableLights();
     }
 
     protected void execute() {
         if(shooter.motor_f.get() > 0.1)
         {
             flicker.setFlick(time.get()<start?0.8:-0.8);
+            if(time.get()>=start)
+                lights.disableLights();
         }
     }
 
@@ -32,7 +34,7 @@ public class Flick extends CommandBase {
 
     protected void end() {
         time.stop();
-        lights.toggleLights();
+        lights.disableLights();
         flicker.setFlick(0);
     }
     
@@ -42,5 +44,6 @@ public class Flick extends CommandBase {
     protected void interrupted() {
         time.stop();
         flicker.setFlick(0);
+        lights.toggleLights();
     }
 }

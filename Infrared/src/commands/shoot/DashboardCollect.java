@@ -53,10 +53,18 @@ public class DashboardCollect extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        shooter.setShooter(0,0,0);
+        shooter.resetEncoders();
+        shooter.stopEncoders();
+        
+        lights.enableLights();
+
+        SmartDashboard.putBoolean("dashboardCollectCMD", false);
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
+        end();
     }
 }
