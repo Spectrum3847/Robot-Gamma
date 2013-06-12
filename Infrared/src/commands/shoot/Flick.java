@@ -15,12 +15,18 @@ public class Flick extends CommandBase {
     public Timer getTimer() {
         return time;
     }
+    
+    public double getTime(){
+        return time.get();
+    }
+            
 
     protected void initialize() {
         //requires(flicker);
         time  = new Timer();
         time.start();
         lights.enableLights();
+        flicker.startTimer();
     }
 
     protected void execute() {
@@ -40,6 +46,7 @@ public class Flick extends CommandBase {
         time.stop();
         lights.disableLights();
         flicker.setFlick(0);
+        flicker.stopTimer();
     }
     
     public synchronized boolean isInterruptable() {

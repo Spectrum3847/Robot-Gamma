@@ -11,6 +11,7 @@ import framework.Dashboard;
  */
 public class DashboardShoot extends CommandBase {
     double front, middle, rear;
+    double frontDrop, middleDrop, rearDrop;
     boolean enabled = false;
     BangBang thread = new BangBang();
 
@@ -23,7 +24,30 @@ public class DashboardShoot extends CommandBase {
         {
             while(enabled)
             {
-                shooter.setBangBang(front, middle, rear);
+                double time = CommandBase.flicker.getTime();
+                double frontTemp = front;
+                double middleTemp = middle;
+                double rearTemp = rear;
+                if(time > rearDrop && time < 1){
+                    rearTemp = 100000;
+                    if(time > middleDrop)
+                        middleTemp = 100000;
+                    if(time > frontDrop)
+                        frontTemp = 100000;
+                }
+                    shooter.setBangBang(frontTemp, middleTemp, rearTemp);
+                
+//                if(CommandBase.flicker.getTime()>.03 && CommandBase.flicker.getTime()<1){
+//                    shooter.setBangBang(front,middle,100000);
+//                }
+//                if(CommandBase.flicker.getTime()>.05 && CommandBase.flicker.getTime()<1){
+//                    shooter.setBangBang(front, 100000, rear);
+//                }
+//                if(CommandBase.flicker.getTime()>.07 && CommandBase.flicker.getTime()<1){
+//                    shooter.setBangBang(100000, middle, rear);
+//                }   
+                    
+                    //shooter.setBangBang(front, middle, rear);
                 try {
                     Thread.sleep(3);
                 } catch (InterruptedException ex) {
@@ -46,6 +70,11 @@ public class DashboardShoot extends CommandBase {
         front = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_RPM_KEY ) + SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET);
         middle = SmartDashboard.getNumber(Dashboard.MIDDLE_SHOOTER_RPM_KEY);
         rear = SmartDashboard.getNumber(Dashboard.REAR_SHOOTER_RPM_KEY);
+        
+        frontDrop = SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_TIMEDROP);
+        middleDrop = SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_TIMEDROP);
+        rearDrop = SmartDashboard.getNumber(Dashboard.REAR_MOTOR_TIMEDROP);
+        
         //shooter.setBangBang(front, middle, rear);
         
         //if (CommandBase.flicker.getFlick() == 0){

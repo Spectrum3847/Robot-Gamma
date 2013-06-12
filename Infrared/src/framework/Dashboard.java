@@ -36,6 +36,10 @@ public class Dashboard {
     public static String FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY = "FRONT MOTOR ANALOG COLLECT SCALE VALUE";
     public static String MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY = "MIDDLE MOTOR ANALOG COLLECT SCALE VALUE";
     public static String REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY = "REAR MOTOR ANALOG SCALE COLLECT VALUE";
+    
+    public static String FRONT_MOTOR_TIMEDROP = "FRONT MOTOR TIMEDROP";
+    public static String MIDDLE_MOTOR_TIMEDROP = "MIDDLE MOTOR TIMEDROP";
+    public static String REAR_MOTOR_TIMEDROP = "REAR MOTOR TIMEDROP";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
@@ -63,6 +67,10 @@ public class Dashboard {
             
             SmartDashboard.putBoolean(AUTON_SWITCH_KEY, true);
             SmartDashboard.putBoolean(AUTON_TYPE_KEY, false);
+            
+            SmartDashboard.putNumber(REAR_MOTOR_TIMEDROP, .02);
+            SmartDashboard.putNumber(MIDDLE_MOTOR_TIMEDROP, .04);
+            SmartDashboard.putNumber(FRONT_MOTOR_TIMEDROP, .06);
         }
     }
 
