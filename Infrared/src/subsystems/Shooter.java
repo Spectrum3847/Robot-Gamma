@@ -71,15 +71,15 @@ public class Shooter extends Subsystem {
         double rate_r = RearMotorRate();
         
         if(rate_f > setpoint_f)
-            setFrontMotor(0.4);
+            setFrontMotor(0.43);
         else setFrontMotor(1.0);
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(0.6);
+            setMiddleMotor(0.83);
         else setMiddleMotor(1.0);
         
         if(rate_r > setpoint_r)
-            setRearMotor(0.7);
+            setRearMotor(0.73);
         else setRearMotor(1.0);
     }
     

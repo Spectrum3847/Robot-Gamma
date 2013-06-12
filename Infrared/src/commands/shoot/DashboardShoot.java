@@ -1,6 +1,7 @@
 package commands.shoot;
 
 import commands.CommandBase;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.Dashboard;
 
@@ -10,15 +11,35 @@ import framework.Dashboard;
  */
 public class DashboardShoot extends CommandBase {
     double front, middle, rear;
+    boolean enabled = false;
+    BangBang thread = new BangBang();
 
     public DashboardShoot() {
         requires(CommandBase.shooter);
+    }
+    
+    private class BangBang extends Thread {
+        public synchronized void run()
+        {
+            while(enabled)
+            {
+                shooter.setBangBang(front, middle, rear);
+                try {
+                    Thread.sleep(3);
+                } catch (InterruptedException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        }
     }
 
     protected void initialize() {
         SmartDashboard.putBoolean("dashboardShootingCMD", true);
         shooter.startEncoders();
         lights.disableLights();
+        enabled = true;
+        thread = new BangBang();
+        thread.start();
     }
 
     protected void execute() {
@@ -28,7 +49,7 @@ public class DashboardShoot extends CommandBase {
         //shooter.setBangBang(front, middle, rear);
         
         //if (CommandBase.flicker.getFlick() == 0){
-           shooter.setBangBang(front, middle, rear); 
+        //   shooter.setBangBang(front, middle, rear); 
         //} else{
         //    shooter.setShooter(1, 1, 1);
         //}
@@ -44,16 +65,19 @@ public class DashboardShoot extends CommandBase {
     }
 
     protected void end() {
+        enabled = false;
         shooter.setShooter(0,0,0);
         shooter.resetEncoders();
         shooter.stopEncoders();
         
         lights.enableLights();
+        
 
         SmartDashboard.putBoolean("dashboardShootingCMD", false);
     }
 
     protected void interrupted() {
+        enabled = false;
         end();
     }
 }
