@@ -12,6 +12,11 @@ public class Flick extends CommandBase {
     double start = 0.1;
     double end = start + 0.1;
     
+    public Flick(){
+        super();
+        requires(flicker);
+    }
+    
     public Timer getTimer() {
         return time;
     }
@@ -22,7 +27,6 @@ public class Flick extends CommandBase {
             
 
     protected void initialize() {
-        //requires(flicker);
         time  = new Timer();
         time.start();
         lights.enableLights();

@@ -40,6 +40,12 @@ public class Dashboard {
     public static String FRONT_MOTOR_TIMEDROP = "FRONT MOTOR TIMEDROP";
     public static String MIDDLE_MOTOR_TIMEDROP = "MIDDLE MOTOR TIMEDROP";
     public static String REAR_MOTOR_TIMEDROP = "REAR MOTOR TIMEDROP";
+    
+    public static String FRONT_MOTOR_BANGLOW = "FRONT MOTOR BANG-LOW";
+    public static String MIDDLE_MOTOR_BANGLOW = "MIDDLE MOTOR BANG-LOW";
+    public static String REAR_MOTOR_BANGLOW = "REAR MOTOR BANG-LOW";
+    
+    public static String AUTO_FLICK_TIME = "Auto Flick Time";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
@@ -50,8 +56,8 @@ public class Dashboard {
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 4300);
             
             SmartDashboard.putNumber(FRONT_COLLECT_RPM_KEY, 0);
-            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 3400);
-            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 3600);
+            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 4100);
+            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 3900);
             
             SmartDashboard.putNumber(FRONT_SHOOTER_OFFSET, 0);
             
@@ -68,9 +74,15 @@ public class Dashboard {
             SmartDashboard.putBoolean(AUTON_SWITCH_KEY, true);
             SmartDashboard.putBoolean(AUTON_TYPE_KEY, false);
             
-            SmartDashboard.putNumber(REAR_MOTOR_TIMEDROP, .02);
-            SmartDashboard.putNumber(MIDDLE_MOTOR_TIMEDROP, .04);
-            SmartDashboard.putNumber(FRONT_MOTOR_TIMEDROP, .06);
+            SmartDashboard.putNumber(REAR_MOTOR_TIMEDROP, 0);
+            SmartDashboard.putNumber(MIDDLE_MOTOR_TIMEDROP, .012);
+            SmartDashboard.putNumber(FRONT_MOTOR_TIMEDROP, .017);
+            
+            SmartDashboard.putNumber(REAR_MOTOR_BANGLOW, .7);
+            SmartDashboard.putNumber(MIDDLE_MOTOR_BANGLOW, .4);
+            SmartDashboard.putNumber(FRONT_MOTOR_BANGLOW, .6);
+            
+            SmartDashboard.putNumber(AUTO_FLICK_TIME, .1);
         }
     }
 

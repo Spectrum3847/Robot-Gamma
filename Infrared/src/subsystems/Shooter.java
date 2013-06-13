@@ -70,16 +70,20 @@ public class Shooter extends Subsystem {
         double rate_m = MiddleMotorRate();
         double rate_r = RearMotorRate();
         
+        double minR = SmartDashboard.getNumber(Dashboard.REAR_MOTOR_BANGLOW);
+        double minM = SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_BANGLOW);
+        double minF = SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_BANGLOW);
+        
         if(rate_f > setpoint_f)
-            setFrontMotor(0.43);
+            setFrontMotor(minF); //minimum math code
         else setFrontMotor(1.0);
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(0.83);
+            setMiddleMotor(minM); //minimum math code
         else setMiddleMotor(1.0);
         
         if(rate_r > setpoint_r)
-            setRearMotor(0.73);
+            setRearMotor(minR); //minimum math code
         else setRearMotor(1.0);
     }
     
@@ -89,9 +93,9 @@ public class Shooter extends Subsystem {
         double rate_r = RearMotorRate();
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(-.4);
+            setMiddleMotor(-.3);
         else
-            setMiddleMotor(-.75);
+            setMiddleMotor(-1);
         
         if(rate_r > setpoint_r)
             setRearMotor(-.4);
