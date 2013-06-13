@@ -13,7 +13,7 @@ public class DashboardShoot extends CommandBase {
     double front, middle, rear;
     double frontDrop, middleDrop, rearDrop;
     boolean enabled = false;
-    BangBang thread = new BangBang();
+    BangBang thread = new BangBang(); 
 
     public DashboardShoot() {
         requires(CommandBase.shooter);

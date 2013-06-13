@@ -46,7 +46,7 @@ public class Dashboard {
             SmartDashboard.putData("MANUAL SHOOT", Init.dashboardShootCollect);
             SmartDashboard.putData("PIDShoot", Init.PIDShootCommand);
             SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 7800);
-            SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 4750);
+            SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 6500);
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 4300);
             
             SmartDashboard.putNumber(FRONT_COLLECT_RPM_KEY, 0);
