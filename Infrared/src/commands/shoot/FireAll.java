@@ -24,13 +24,11 @@ public class FireAll extends CommandGroup {
         this.addSequential(new AtSpeedFlick(), 0.5);
         */
         
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
-        this.addSequential(new AutoFlick(), 0.5);
+        this.addSequential(new AutoFlick(), 1);
+        this.addSequential(new AutoFlick(), 1);
+        this.addSequential(new AutoFlick(), 1);
+        this.addSequential(new AutoFlick(), 1);
+        this.addSequential(new AutoFlick(), 1);
+        this.addSequential(new AutoFlick(), 1);
     }
 }

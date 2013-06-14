@@ -40,11 +40,13 @@ public class AutoFlick extends CommandBase {
     protected void execute() {
         if(shooter.motor_f.get() > 0.1)
         {
-            flicker.setFlick(time.get()<start?0.8:-0.8);
+            
             if(time.get()<start)
                 flicker.setFlick(.8);
             else if(time.get()<=end)
                 flicker.setFlick(-.8);
+            else
+                flicker.setFlick(0);
             if(time.get()>=start)
                 lights.disableLights();
         }
@@ -64,9 +66,11 @@ public class AutoFlick extends CommandBase {
     public synchronized boolean isInterruptable() {
         return false;
     }
+    
     protected void interrupted() {
         time.stop();
         flicker.setFlick(0);
         lights.toggleLights();
+        flicker.stopTimer();
     }
 }

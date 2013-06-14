@@ -56,14 +56,14 @@ public class Dashboard {
             SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 4300);
             
             SmartDashboard.putNumber(FRONT_COLLECT_RPM_KEY, 0);
-            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 4100);
-            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 3900);
+            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 5400);
+            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 4300);
             
             SmartDashboard.putNumber(FRONT_SHOOTER_OFFSET, 0);
             
-            SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY, 0.8);
-            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY, 0.86);
-            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY, 0.95);
+            SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_SCALE_KEY, 1);
+            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_SCALE_KEY, 1);
+            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY, 1);
             
             SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0);
             SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.6);
@@ -78,11 +78,11 @@ public class Dashboard {
             SmartDashboard.putNumber(MIDDLE_MOTOR_TIMEDROP, .012);
             SmartDashboard.putNumber(FRONT_MOTOR_TIMEDROP, .017);
             
-            SmartDashboard.putNumber(REAR_MOTOR_BANGLOW, .7);
+            SmartDashboard.putNumber(REAR_MOTOR_BANGLOW, .8);
             SmartDashboard.putNumber(MIDDLE_MOTOR_BANGLOW, .4);
-            SmartDashboard.putNumber(FRONT_MOTOR_BANGLOW, .6);
+            SmartDashboard.putNumber(FRONT_MOTOR_BANGLOW, .7);
             
-            SmartDashboard.putNumber(AUTO_FLICK_TIME, .1);
+            SmartDashboard.putNumber(AUTO_FLICK_TIME, .2);
         }
     }
 
