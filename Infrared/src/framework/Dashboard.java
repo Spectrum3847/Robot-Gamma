@@ -51,12 +51,12 @@ public class Dashboard {
         if (ENABLE_SPECTRUM_DASHBOARD) {
             //SmartDashboard.putData("MANUAL SHOOT", Init.dashboardShootCollect);
             //SmartDashboard.putData("PIDShoot", Init.PIDShootCommand);
-            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 7800);
-            SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 6500);
-            SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 4300);
+            SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 9000);
+            SmartDashboard.putNumber(MIDDLE_SHOOTER_RPM_KEY, 5500);
+            SmartDashboard.putNumber(REAR_SHOOTER_RPM_KEY, 3900);
             
             SmartDashboard.putNumber(FRONT_COLLECT_RPM_KEY, 0);
-            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 5400);
+            SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 6000);
             SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 4300);
             
             SmartDashboard.putNumber(FRONT_SHOOTER_OFFSET, 0);
@@ -80,7 +80,7 @@ public class Dashboard {
             
             SmartDashboard.putNumber(REAR_MOTOR_BANGLOW, .8);
             SmartDashboard.putNumber(MIDDLE_MOTOR_BANGLOW, .4);
-            SmartDashboard.putNumber(FRONT_MOTOR_BANGLOW, .7);
+            SmartDashboard.putNumber(FRONT_MOTOR_BANGLOW, .6);
             
             SmartDashboard.putNumber(AUTO_FLICK_TIME, .2);
         }
