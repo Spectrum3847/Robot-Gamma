@@ -101,6 +101,11 @@ public class Shooter extends Subsystem {
             setRearMotor(-.4);
         else
             setRearMotor(-1);
+        
+        if(rate_f > setpoint_f)
+            setFrontMotor(-.1);
+        else
+            setFrontMotor(-.7);
     }
     
     public double getFrontMotor() {

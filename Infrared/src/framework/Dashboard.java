@@ -66,8 +66,8 @@ public class Dashboard {
             SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_SCALE_KEY, 1);
             
             SmartDashboard.putNumber(Dashboard.FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY, .4);
-            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.6);
-            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.65);
+            SmartDashboard.putNumber(Dashboard.MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.7);
+            SmartDashboard.putNumber(Dashboard.REAR_MOTOR_ANALOG_COLLECT_SCALE_KEY, 0.85);
             
             SmartDashboard.putNumber(Dashboard.CHEESY_SENSITIVITY_KEY, 1.32);
             
