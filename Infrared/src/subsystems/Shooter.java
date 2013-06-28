@@ -57,13 +57,13 @@ public class Shooter extends Subsystem {
     }
     
     //PID code here, change implementation in AutonSetShooter.java to PID instead of setBangBang
-    public void doDaPID(double setpoint_f, double setpoint_m, double setpoint_r){
-        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
-        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
-        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
+//    public void doDaPID(double setpoint_f, double setpoint_m, double setpoint_r){
+//        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
+//        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
+//        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
         
         //PID stuff here
-    }
+//    }
     
     public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
         double rate_f = FrontMotorRate();
