@@ -5,6 +5,7 @@ import commands.driving.AutonDrive;
 import commands.lift.AutonLift;
 import commands.shoot.AutoFireSingle;
 import commands.shoot.AutonSetShooter;
+import commands.shoot.FireAll;
 import commands.shoot.Flick;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
@@ -21,18 +22,8 @@ public class AutonGroup1 extends CommandGroup
         requires(CommandBase.drivebase);
         requires(CommandBase.lift);
         requires(CommandBase.flicker);
-        this.addParallel(new AutonSetShooter(), 15);
-        this.addSequential(new WaitCommand(2));
-        this.addSequential(new Flick());
-        this.addSequential(new WaitCommand(2.5));
-        this.addSequential(new Flick());
-        this.addSequential(new WaitCommand(2.5));
-        this.addSequential(new Flick());
-        this.addSequential(new WaitCommand(2.5));
-        this.addSequential(new Flick());
-        this.addSequential(new WaitCommand(0.5));
-        this.addSequential(new AutonLift(), 0.5);
-        this.addSequential(new AutonDrive(-0.75), 1.75);
+        
+        this.addSequential(new FireAll(), 4);
     }
     
     // Called just before this Command runs the first time

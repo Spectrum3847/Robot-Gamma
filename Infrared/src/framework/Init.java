@@ -4,6 +4,9 @@ import commands.CommandBase;
 import commands.autonomous.AutonGroup1;
 import commands.autonomous.AutonGroup2;
 import commands.lift.LiftControl;
+import commands.pneumatics.DeployBrakes;
+import commands.pneumatics.DeployHooks;
+import commands.pneumatics.RunCompressor;
 import commands.shoot.FireAll;
 import commands.shoot.Flick;
 import commands.shoot.PIDShoot;
@@ -36,6 +39,11 @@ public class Init {
     public static Command auton1 = new AutonGroup1();
     public static Command auton2 = new AutonGroup2();
     public static Command auton;
+    
+    //Jacks Commands
+    public static final Command runCompressor = new RunCompressor();
+    public static final Command deployBrakes = new DeployBrakes();
+    public static final Command deployHooks = new DeployHooks();
     
     public static DigitalInput auton_switch = new DigitalInput(HW.AUTON_KILL);
     public static DigitalInput auton_pick = new DigitalInput(HW.AUTON_PICK);

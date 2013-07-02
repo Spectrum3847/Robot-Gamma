@@ -12,7 +12,19 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    
+    /*
+     * Buttons Available:
+     * Bumper L
+     * Bumper R
+     * Button X
+     * Button Y
+     * Button A
+     * Button B
+     * Up
+     * Down
+     * Left
+     * Right
+     */
     public static final Gamepad gamepad = new Gamepad(HW.usbPort_one);
     public static final Gamepad gamepad_aux = new Gamepad(HW.usbPort_two);
     
@@ -26,6 +38,9 @@ public class OI {
     public static final Button front_inc = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.B_BUTTON);
     public static final Button front_dec = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.X_BUTTON);
     
+    public static final Button brakes = new JoystickButton(gamepad.getGamepad(), Gamepad.LEFT_BUMPER);
+    public static final Button hooks = new JoystickButton(gamepad.getGamepad(), Gamepad.RIGHT_BUMPER);
+    
     //Use this constructor to setup up button schedulers for commands
     public OI() {
         flick.whenPressed(Init.flick);
@@ -36,5 +51,8 @@ public class OI {
         
         front_inc.whenPressed(Init.inc);
         front_dec.whenPressed(Init.dec);
+        
+        brakes.whenPressed(Init.deployBrakes);
+        hooks.whenPressed(Init.deployHooks);
     }
 }

@@ -39,10 +39,18 @@ public class HW {
     public static final int LDRIVE_ENCODER_A = 3;
     public static final int LDRIVE_ENCODER_B = 4;
     
+    /**DIGITAL SENSOR ALLOCATIONS - PNEUMATICS**/
+    public static final int PRESSURE_SENSOR = 5;
+    
     /**DIGITAL SENSOR ALLOCATIONS - SHOOTER SYSTEM**/
     public static final int SHOOTER_FRONT_ENCODER = 6;
     public static final int SHOOTER_MIDDLE_ENCODER = 7;
     public static final int SHOOTER_REAR_ENCODER = 10;
+    
+    /**SOLENOID ALLOCATIONS**/
+    public static final int COMPRESSOR = 1;
+    public static final int BRAKES = 2;
+    public static final int HOOKS = 3;
     
     /**JOYSTICKS/GAMEPAD ASSIGNMENTS**/
     public static final int usbPort_one = 1;
@@ -54,6 +62,6 @@ public class HW {
     /**INNER-CODE MISCELANEOUS**/
     public static final double AS5415_MAX_VOLTAGE = 3.3;
     public static final int GYRO_CHANNEL = 1;
-    static int AUTON_PICK = 11;
-    static int AUTON_KILL = 12;
+    public static final int AUTON_PICK = 11;
+    public static final int AUTON_KILL = 12;
 }

@@ -14,7 +14,7 @@ public class Teleop {
         Init.liftcontrol.start();
         Init.test.start();
         Init.dashboardShootCollect.start();
-        //Init.PIDShootCommand.start();
+        Init.runCompressor.start();
     }
 
     static int number = 0;
