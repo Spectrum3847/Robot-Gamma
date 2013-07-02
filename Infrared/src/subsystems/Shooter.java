@@ -57,29 +57,33 @@ public class Shooter extends Subsystem {
     }
     
     //PID code here, change implementation in AutonSetShooter.java to PID instead of setBangBang
-    public void doDaPID(double setpoint_f, double setpoint_m, double setpoint_r){
-        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
-        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
-        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
+//    public void doDaPID(double setpoint_f, double setpoint_m, double setpoint_r){
+//        double rate_f = encoder_f.getRate()>16000?0:encoder_f.getRate();
+//        double rate_m = encoder_m.getRate()>16000?0:encoder_m.getRate();
+//        double rate_r = encoder_r.getRate()>16000?0:encoder_r.getRate();
         
         //PID stuff here
-    }
+//    }
     
     public void setBangBang(double setpoint_f, double setpoint_m, double setpoint_r){
         double rate_f = FrontMotorRate();
         double rate_m = MiddleMotorRate();
         double rate_r = RearMotorRate();
         
+        double minR = SmartDashboard.getNumber(Dashboard.REAR_MOTOR_BANGLOW);
+        double minM = SmartDashboard.getNumber(Dashboard.MIDDLE_MOTOR_BANGLOW);
+        double minF = SmartDashboard.getNumber(Dashboard.FRONT_MOTOR_BANGLOW);
+        
         if(rate_f > setpoint_f)
-            setFrontMotor(0.43);
+            setFrontMotor(minF); //minimum math code
         else setFrontMotor(1.0);
         
         if(rate_m > setpoint_m)
-            setMiddleMotor(0.83);
+            setMiddleMotor(minM); //minimum math code
         else setMiddleMotor(1.0);
         
         if(rate_r > setpoint_r)
-            setRearMotor(0.73);
+            setRearMotor(minR); //minimum math code
         else setRearMotor(1.0);
     }
     
@@ -91,12 +95,17 @@ public class Shooter extends Subsystem {
         if(rate_m > setpoint_m)
             setMiddleMotor(-.4);
         else
-            setMiddleMotor(-.75);
+            setMiddleMotor(-1);
         
         if(rate_r > setpoint_r)
             setRearMotor(-.4);
         else
-            setRearMotor(-.75);
+            setRearMotor(-1);
+        
+        if(rate_f > setpoint_f)
+            setFrontMotor(-.1);
+        else
+            setFrontMotor(-.7);
     }
     
     public double getFrontMotor() {
