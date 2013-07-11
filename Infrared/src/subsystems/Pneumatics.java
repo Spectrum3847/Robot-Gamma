@@ -5,8 +5,7 @@
 package subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.Relay;
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.HW;
@@ -21,13 +20,13 @@ public class Pneumatics extends Subsystem {
 
     private Compressor compressor;
     
-    public static Solenoid brakes;
-    public static Solenoid hooks;
+    public static DoubleSolenoid brakes;
+    public static DoubleSolenoid hooks;
     
     public Pneumatics(){
         compressor = new Compressor(HW.PRESSURE_SENSOR,HW.COMPRESSOR);
-        brakes = new Solenoid(HW.BRAKES);
-        hooks = new Solenoid(HW.HOOKS);
+        brakes = new DoubleSolenoid(HW.BRAKES, HW.BRAKES+1);
+        hooks = new DoubleSolenoid(HW.HOOKS, HW.HOOKS+1);
     }
     
     public boolean isMaxPSI(){
@@ -50,24 +49,24 @@ public class Pneumatics extends Subsystem {
     }
     
     public void engageBrakes(){
-        brakes.set(true);
+        brakes.set(DoubleSolenoid.Value.kForward);
         
         SmartDashboard.putBoolean("Brakes Engaged", true); //Brakes are engaged
     }
     
     public void releaseBrakes(){
-        brakes.set(false);
+        brakes.set(DoubleSolenoid.Value.kReverse);
         SmartDashboard.putBoolean("Brakes Engaged", false); //Brakes are released
     }
     
     public void engageHooks(){
-        hooks.set(true);
+        hooks.set(DoubleSolenoid.Value.kForward);
         
         SmartDashboard.putBoolean("Hooks Engaged", true); //Hooks are extended
     }
     
     public void releaseHooks(){
-        hooks.set(false);
+        hooks.set(DoubleSolenoid.Value.kReverse);
         SmartDashboard.putBoolean("Hooks Engaged", false); //Hooks are retracted
     }
     
@@ -76,7 +75,7 @@ public class Pneumatics extends Subsystem {
      * @return state of the brakes solenoid
      */
     public boolean isBrakes(){
-        return brakes.get();
+        return brakes.get().value==DoubleSolenoid.Value.kReverse_val?false:true;
     }
     
 }

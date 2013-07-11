@@ -6,6 +6,8 @@ import commands.autonomous.AutonGroup2;
 import commands.lift.LiftControl;
 import commands.pneumatics.DeployBrakes;
 import commands.pneumatics.DeployHooks;
+import commands.pneumatics.ReleaseBrakes;
+import commands.pneumatics.ReleaseHooks;
 import commands.pneumatics.RunCompressor;
 import commands.shoot.FireAll;
 import commands.shoot.Flick;
@@ -44,6 +46,8 @@ public class Init {
     public static final Command runCompressor = new RunCompressor();
     public static final Command deployBrakes = new DeployBrakes();
     public static final Command deployHooks = new DeployHooks();
+    public static final Command releaseBrakes = new ReleaseBrakes();
+    public static final Command relaseHooks = new ReleaseHooks();
     
     public static DigitalInput auton_switch = new DigitalInput(HW.AUTON_KILL);
     public static DigitalInput auton_pick = new DigitalInput(HW.AUTON_PICK);

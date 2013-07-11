@@ -49,8 +49,8 @@ public class HW {
     
     /**SOLENOID ALLOCATIONS**/
     public static final int COMPRESSOR = 1;
-    public static final int BRAKES = 2;
-    public static final int HOOKS = 3;
+    public static final int HOOKS = 1;
+    public static final int BRAKES = 3;
     
     /**JOYSTICKS/GAMEPAD ASSIGNMENTS**/
     public static final int usbPort_one = 1;

@@ -38,7 +38,7 @@ public class OI {
     public static final Button front_inc = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.B_BUTTON);
     public static final Button front_dec = new JoystickButton(gamepad_aux.getGamepad(), Gamepad.X_BUTTON);
     
-    public static final Button brakes = new JoystickButton(gamepad.getGamepad(), Gamepad.LEFT_BUMPER);
+    public static final Button brakes = new JoystickButton(gamepad.getGamepad(), Gamepad.LEFT_CLICK);
     public static final Button hooks = new JoystickButton(gamepad.getGamepad(), Gamepad.RIGHT_BUMPER);
     
     //Use this constructor to setup up button schedulers for commands
@@ -54,5 +54,8 @@ public class OI {
         
         brakes.whenPressed(Init.deployBrakes);
         hooks.whenPressed(Init.deployHooks);
+        
+        brakes.whenReleased(Init.releaseBrakes);
+        hooks.whenReleased(Init.relaseHooks);
     }
 }
