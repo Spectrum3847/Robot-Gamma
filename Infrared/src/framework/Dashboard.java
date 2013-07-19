@@ -46,9 +46,13 @@ public class Dashboard {
     public static String REAR_MOTOR_BANGLOW = "Rear Bang-Low";
     
     public static String AUTO_FLICK_TIME = "Auto Flick Delay";
+    
+    public static String BACKUP_TIME = "Backup Time";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
+            SmartDashboard.putNumber(BACKUP_TIME, 2);
+            
             //SmartDashboard.putData("MANUAL SHOOT", Init.dashboardShootCollect);
             //SmartDashboard.putData("PIDShoot", Init.PIDShootCommand);
             SmartDashboard.putNumber(FRONT_SHOOTER_RPM_KEY, 9000);

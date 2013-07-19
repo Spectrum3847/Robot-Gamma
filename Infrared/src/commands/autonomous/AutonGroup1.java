@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.WaitCommand;
  *
  * @author matthew
  */
+
+//fires 3 discs
 public class AutonGroup1 extends CommandGroup {
 
     public AutonGroup1() {
