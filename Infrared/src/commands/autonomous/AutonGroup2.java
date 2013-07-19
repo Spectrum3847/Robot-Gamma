@@ -3,6 +3,7 @@ package commands.autonomous;
 import commands.CommandBase;
 import commands.shoot.DashboardShoot;
 import commands.shoot.FireAll;
+import commands.driving.AutoBackWithTimer;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
@@ -24,6 +25,7 @@ public class AutonGroup2 extends CommandGroup {
         this.addParallel(new DashboardShoot(), 2);
         this.addSequential(new WaitCommand(2));
         this.addSequential(new FireAll());
+        this.addSequential(new AutoBackWithTimer(),6);
     }
 
     // Called just before this Command runs the first time
