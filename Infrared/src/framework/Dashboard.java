@@ -51,7 +51,7 @@ public class Dashboard {
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
-            SmartDashboard.putNumber(BACKUP_TIME, 2);
+            SmartDashboard.putNumber(BACKUP_TIME, 1.5);
             
             //SmartDashboard.putData("MANUAL SHOOT", Init.dashboardShootCollect);
             //SmartDashboard.putData("PIDShoot", Init.PIDShootCommand);
