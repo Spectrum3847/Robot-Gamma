@@ -31,7 +31,7 @@ public class Dashboard {
     public static String CHEESY_SENSITIVITY_KEY = "Cheesy Sensitivity";
     
     public static String AUTON_SWITCH_KEY = "Auton On";
-    public static String AUTON_TYPE_KEY = "Auton 5 Disk";
+    public static String AUTON_TYPE_KEY = "Auton Type 2";
     
     public static String FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY = "Front Collect Scale";
     public static String MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY = "Mid Collect Scale";
