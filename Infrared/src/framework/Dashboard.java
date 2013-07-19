@@ -57,7 +57,7 @@ public class Dashboard {
             
             SmartDashboard.putNumber(FRONT_COLLECT_RPM_KEY, 2000);
             SmartDashboard.putNumber(MIDDLE_COLLECT_RPM_KEY, 6000);
-            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 4300);
+            SmartDashboard.putNumber(REAR_COLLECT_RPM_KEY, 4600);
             
             SmartDashboard.putNumber(FRONT_SHOOTER_OFFSET, 0);
             
