@@ -42,7 +42,10 @@ public class AutoFlick extends CommandBase {
         {
             
             if(time.get()<start)
+            {
                 flicker.setFlick(.8);
+                logging();
+            }
             else if(time.get()<=end)
                 flicker.setFlick(-.8);
             else
@@ -72,5 +75,11 @@ public class AutoFlick extends CommandBase {
         flicker.setFlick(0);
         lights.toggleLights();
         flicker.stopTimer();
+    }
+    
+    private void logging() {
+        System.out.println("FRONT RPM: " + shooter.FrontMotorRate());
+        System.out.println("MIDDLE RPM: " + shooter.MiddleMotorRate());
+        System.out.println("REAR RPM: " + shooter.RearMotorRate());
     }
 }

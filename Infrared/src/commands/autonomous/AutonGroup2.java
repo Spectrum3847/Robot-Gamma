@@ -5,6 +5,7 @@ import commands.shoot.DashboardShoot;
 import commands.shoot.FireAll;
 import commands.driving.AutoBackWithTimer;
 import commands.driving.AutoBack;
+import commands.shoot.Flick;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 import edu.wpi.first.wpilibj.command.WaitCommand;
 
@@ -23,11 +24,26 @@ public class AutonGroup2 extends CommandGroup {
         requires(CommandBase.lift);
         requires(CommandBase.flicker);
         
-        this.addParallel(new DashboardShoot(), 2);
-        this.addSequential(new WaitCommand(2));
-        this.addSequential(new FireAll());
-        this.addSequential(new AutoBack());
+        //this.addParallel(new DashboardShoot(), 2);
+        //this.addSequential(new WaitCommand(2));
+        //this.addSequential(new FireAll());
+        //this.addSequential(new AutoBack());
         //this.addSequential(new AutoBackWithTimer());
+    
+    this.addParallel(new DashboardShoot(), 11);
+        this.addSequential(new WaitCommand(5));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(.8));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(.8));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(.8));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(.8));
+        this.addSequential(new Flick());
+        this.addSequential(new WaitCommand(.8));
+        this.addSequential(new Flick());
+        this.addSequential(new AutoBackWithTimer());
     }
 
     // Called just before this Command runs the first time
