@@ -32,6 +32,7 @@ public class Dashboard {
     
     public static String AUTON_SWITCH_KEY = "Auton On";
     public static String AUTON_TYPE_KEY = "Auton Type 2";
+    public static String AUTON_POOL_NOODLE = "PoolNoodle 5";
     
     public static String FRONT_MOTOR_ANALOG_COLLECT_SCALE_KEY = "Front Collect Scale";
     public static String MIDDLE_MOTOR_ANALOG_COLLECT_SCALE_KEY = "Mid Collect Scale";
@@ -48,10 +49,14 @@ public class Dashboard {
     public static String AUTO_FLICK_TIME = "Auto Flick Delay";
     
     public static String BACKUP_TIME = "Backup Time";
+    public static String POOL_NOODLE_FORWARD_TIME = "Noodle Forward Time";
+    public static String POOL_NOODLE_BACK_TIME = "Noodle Back Time";
 
     public static void intializeDashboard() {
         if (ENABLE_SPECTRUM_DASHBOARD) {
             SmartDashboard.putNumber(BACKUP_TIME, .5);
+            SmartDashboard.putNumber(POOL_NOODLE_BACK_TIME, .75);
+            SmartDashboard.putNumber(POOL_NOODLE_FORWARD_TIME, .75);
             
             //SmartDashboard.putData("MANUAL SHOOT", Init.dashboardShootCollect);
             //SmartDashboard.putData("PIDShoot", Init.PIDShootCommand);
@@ -77,6 +82,7 @@ public class Dashboard {
             
             SmartDashboard.putBoolean(AUTON_SWITCH_KEY, true);
             SmartDashboard.putBoolean(AUTON_TYPE_KEY, false);
+            SmartDashboard.putBoolean(AUTON_POOL_NOODLE,false);
             
             SmartDashboard.putNumber(REAR_MOTOR_TIMEDROP, 0);
             SmartDashboard.putNumber(MIDDLE_MOTOR_TIMEDROP, .012);

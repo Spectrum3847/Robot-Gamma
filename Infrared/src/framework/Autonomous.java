@@ -21,11 +21,20 @@ public class Autonomous {
         }
         */
         
-        Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY))?Init.auton2:Init.auton1;
-        if(SmartDashboard.getBoolean(Dashboard.AUTON_SWITCH_KEY))
-        {
-            Init.auton.start();
-        }
+        //Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY))?Init.auton2:Init.auton1;
+        //if(SmartDashboard.getBoolean(Dashboard.AUTON_SWITCH_KEY))
+        
+            if(SmartDashboard.getBoolean(Dashboard.AUTON_POOL_NOODLE)==true)
+                Init.auton=Init.auton3;
+            if(SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY)==true)
+                Init.auton = Init.auton2;
+            else
+                Init.auton = Init.auton1;
+        
+        
+        
+        Init.auton.start();
+        
     }
 
     public static void periodic()
