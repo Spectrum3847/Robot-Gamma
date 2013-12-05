@@ -11,8 +11,6 @@ import commands.pneumatics.ReleaseHooks;
 import commands.pneumatics.RunCompressor;
 import commands.shoot.FireAll;
 import commands.shoot.Flick;
-import commands.shoot.PIDShoot;
-import commands.shoot.PIDShooterFront;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 
