@@ -1,18 +1,20 @@
 package commands.lift;
 
 import commands.CommandBase;
+import framework.OI;
 
 /**
  *
  * @author matthew
  */
-public class AutonLift extends CommandBase {
-    
+public class LiftUp extends CommandBase {
+
     protected void initialize() {
+        CommandBase.lift.setSpeed(0);
     }
 
     protected void execute() {
-        lift.setSpeed(-1);
+        CommandBase.lift.setSpeed(0.7);
     }
 
     protected boolean isFinished() {
@@ -20,11 +22,11 @@ public class AutonLift extends CommandBase {
     }
 
     protected void end() {
-        lift.setSpeed(0);
+        CommandBase.lift.setSpeed(0);
     }
 
     protected void interrupted() {
-        end();
+        CommandBase.lift.setSpeed(0);
     }
-    
+
 }

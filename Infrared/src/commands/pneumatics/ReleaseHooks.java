@@ -1,30 +1,29 @@
-package commands.lift;
+package commands.pneumatics;
 
 import commands.CommandBase;
+import framework.Init;
 
 /**
- *
  * @author matthew
  */
-public class AutonLift extends CommandBase {
-    
+public class ReleaseHooks extends CommandBase {
+
     protected void initialize() {
     }
 
     protected void execute() {
-        lift.setSpeed(-1);
+        Init.deployHooks.cancel();
     }
 
     protected boolean isFinished() {
-        return false;
+        return Init.deployHooks.isCanceled();
     }
 
     protected void end() {
-        lift.setSpeed(0);
     }
 
     protected void interrupted() {
         end();
     }
-    
+
 }

@@ -1,8 +1,6 @@
 package framework;
 
-import commands.autonomous.AutonFourDiscs;
-import commands.autonomous.AutonSevenDiscs;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -10,14 +8,33 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  * @author matthew
  */
 public class Autonomous {
-    
     public static void init()
     {
-        if(SmartDashboard.getBoolean(Dashboard.AUTON_ENABLED_KEY))
+        /*
+        //Init.auton = Init.auton1; 
+        SmartDashboard.putBoolean("Auton Status", Init.auton_pick.get());
+        SmartDashboard.putBoolean("Auton Switch", Init.auton_switch.get());
+        Init.auton = (Init.auton_pick.get())?Init.auton2:Init.auton1;
+        if(Init.auton_switch.get())
         {
-            Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_FOUR_SEVEN_KEY))?((Command) new AutonFourDiscs(false)):((Command) new AutonSevenDiscs());
             Init.auton.start();
         }
+        */
+        
+        //Init.auton = (SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY))?Init.auton2:Init.auton1;
+        //if(SmartDashboard.getBoolean(Dashboard.AUTON_SWITCH_KEY))
+        
+            if(SmartDashboard.getBoolean(Dashboard.AUTON_POOL_NOODLE)==true)
+                Init.auton=Init.auton3;
+            if(SmartDashboard.getBoolean(Dashboard.AUTON_TYPE_KEY)==true)
+                Init.auton = Init.auton2;
+            else
+                Init.auton = Init.auton1;
+        
+        
+        
+        Init.auton.start();
+        
     }
 
     public static void periodic()
@@ -28,7 +45,9 @@ public class Autonomous {
     
     public static void cancel()
     {
-        if(Init.auton != null) {
+        Init.auton = Init.auton1;
+        if(Init.auton_switch.get())
+        {
             Init.auton.cancel();
         }
     }

@@ -12,30 +12,15 @@ import edu.wpi.first.wpilibj.Counter;
  * is used to get rate.
  */
 public class OpticalEncoder extends Counter {
-    
     public OpticalEncoder(int channel){
         super(channel);
     }
     
-    /**
-     * 
-     * gets the ticks of the optical encoder.
-     * A tick is defined as a change in false to true recording
-     * of the encoder.
-     */
     public int getTicks(){
         return get();
     }
     
-    /**
-     * Each revolution records exactly (1) tick.
-     * When divided by the period between ticks, or time per revolution, of the encoder,
-     * an output of ticks per second is given. Multiply by 60,
-     * and you get ticks per minute. Since (1) tick is equivalent to
-     * (1) revolution, the output corresponds to RPM.
-     */
     public double getRate(){
-        return 1.0 / getPeriod() * 60.0;
+        return 1.0/getPeriod()*60.0;
     }
-    
 }

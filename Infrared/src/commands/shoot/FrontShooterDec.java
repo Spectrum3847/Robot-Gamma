@@ -1,32 +1,30 @@
-package commands.lift;
+package commands.shoot;
 
 import commands.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import framework.Dashboard;
 
 /**
- *
  * @author matthew
  */
-public class AutonLiftLower extends CommandBase {
-    
+public class FrontShooterDec extends CommandBase {
+    double tmp;
+
     protected void initialize() {
+        tmp = SmartDashboard.getNumber(Dashboard.FRONT_SHOOTER_OFFSET) - 50;
+        SmartDashboard.putNumber(Dashboard.FRONT_SHOOTER_OFFSET, tmp);
     }
 
     protected void execute() {
-        lift.setSpeed(SmartDashboard.getNumber(Dashboard.LIFT_LOWER_SPEED_KEY));
     }
 
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     protected void end() {
-        lift.setSpeed(0);
     }
 
     protected void interrupted() {
-        end();
     }
-    
 }

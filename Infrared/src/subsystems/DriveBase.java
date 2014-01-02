@@ -64,7 +64,7 @@ public class DriveBase extends PIDSubsystem {
       * re-enabled after breaking or turning.
       */
     public void initDefaultCommand(){
-        setDefaultCommand(Init.gamepaddrive);   // set default command
+        setDefaultCommand(Init.cheesydrive);   // set default command
     }
     
     /**
@@ -252,7 +252,7 @@ public class DriveBase extends PIDSubsystem {
      */
     
     public Victor getVictor(int id){
-        return vic_arr[id-1];
+        return vic_arr[id];
     }
     
     public Victor[] getVicArr(){
