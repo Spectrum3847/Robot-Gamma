@@ -4,8 +4,9 @@
 *.jar
 *.war
 *.ear
+*.bak.xml
 
-/Infrared/nbproject/project.bak.xml
-/Infrared/nbproject/project.xml
-/Infrared/nbproject/private/
-/Infrared/build/
+/Gamma/nbproject/project.bak.xml
+/Gamma/nbproject/project.xml
+/Gamma/nbproject/private/
+/Gamma/build/
